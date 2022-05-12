@@ -1,8 +1,11 @@
-export const navber = [
+import Generic from "../pages/Generic";
+
+export const navbar = [
   {
     id: 1,
     title: "Home",
     path: "/home",
+    element: <Generic />,
     search: "?",
     hidden: false,
     private: false,
@@ -11,14 +14,18 @@ export const navber = [
     id: 2,
     title: "Properties",
     path: "/properties",
+    element: <Generic />,
+
     search: "?",
     hidden: false,
     private: false,
   },
   {
     id: 1,
-    title: "Home",
-    path: "/home",
+    title: "Contacts",
+    path: "/contacts",
+    element: <Generic />,
+
     search: "?",
     hidden: false,
     private: false,
