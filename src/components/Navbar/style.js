@@ -1,9 +1,55 @@
 import styled from "styled-components";
-
-const Container = styled.div``;
-
+import { NavLink } from "react-router-dom";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
-export { Wrapper, Container };
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primaryColor);
+  /* -webkit-touch-callout: none;    
+  -webkit-user-select: none;
+  -khtml-user-select: none
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select:none ; */
+`;
+
+const NavbarWrapper = styled.div`
+  display: flex;
+  height: 64px;
+  font-family: 1440px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+  color: #ffffff;
+`;
+const NavbarBody = styled.div`
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  .active {
+    color: #00fff5;
+  }
+`;
+
+const Link = styled(NavLink)`
+  color: white;
+  margin: 0 32px;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+`;
+const Body = styled.div`
+  display: flex;
+  width: 100%;
+`;
+export { Wrapper, Container, Body, NavbarBody, NavbarWrapper, Link };
