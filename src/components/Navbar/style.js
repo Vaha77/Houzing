@@ -10,12 +10,12 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background: var(--primaryColor);
-  -webkit-touch-callout: none;    
+  -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none
+  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select:none ;
+  user-select: none;
 `;
 
 const NavbarWrapper = styled.div`
