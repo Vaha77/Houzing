@@ -41,12 +41,12 @@ const Container = styled.div`
   margin-bottom: ${({ mb }) => `${mb}px`};
   cursor: pointer;
 
-  /* -webkit-touch-callout: none;    
+  -webkit-touch-callout: none;    
   -webkit-user-select: none;
   -khtml-user-select: none
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select:none ; */
+  user-select:none ;
 
   ${({ type }) => getType(type)}
   :active {
