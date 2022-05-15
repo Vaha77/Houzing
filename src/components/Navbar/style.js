@@ -51,10 +51,6 @@ const Link = styled(NavLink)`
   font-size: 18px;
   line-height: 24px;
 `;
-const Body = styled.div`
-  display: flex;
-  width: 100%;
-`;
 
 const Logo = styled.div`
   display: flex;
@@ -68,4 +64,4 @@ Logo.Title = styled("div")`
   font-size: 20px;
   font-weight: 500px;
 `;
-export { Wrapper, Container, Body, NavbarBody, NavbarWrapper, Link, Logo };
+export { Wrapper, Container, NavbarBody, NavbarWrapper, Link, Logo };

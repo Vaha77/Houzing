@@ -1,6 +1,6 @@
 import React from "react";
-import { Container } from "./style";
-export const Button = ({
+import { Container, Icon, Wrapper } from "./style";
+export const Input = ({
   children,
   onClick,
   height,
@@ -10,21 +10,24 @@ export const Button = ({
   ml,
   mb,
   mt,
+  pl,
+  onChange,
+  placeholder,
 }) => {
   return (
-    <Container
-      mr={mr}
-      ml={ml}
-      mb={mb}
-      mt={mt}
-      type={type}
-      width={width}
-      height={height}
-      onClick={onClick}
-    >
-      {children}
-    </Container>
+    <Wrapper mr={mr} ml={ml} mb={mb} mt={mt}>
+      <Icon>{children}</Icon>
+      <Container
+        onChange={onChange}
+        placeholder={placeholder}
+        pl={pl}
+        type={type}
+        width={width}
+        height={height}
+        onClick={onClick}
+      />
+    </Wrapper>
   );
 };
 
-export default Button;
+export default Input;
