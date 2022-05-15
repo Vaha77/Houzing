@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 const getType = (type) => {
   switch (type) {
     case "secondary":
@@ -21,7 +20,7 @@ const getType = (type) => {
   }
 };
 
-const Container = styled.div`
+const Container = styled.input`
   display: flex;
   font-style: normal;
   font-weight: 400;
@@ -47,10 +46,5 @@ const Wrapper = styled.div`
   margin-top: ${({ mt }) => `${mt}px`};
   margin-bottom: ${({ mb }) => `${mb}px`};
 `;
-const Icon = styled.div`
-  position: absolute;
-  transform: translate(-50% -50%);
-  top: 50%;
-  left: 30px;
-`;
-export { Container, Wrapper, Icon };
+
+export { Container, Wrapper };
