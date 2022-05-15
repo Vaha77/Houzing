@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Navbar } from "../components";
 import { navbar } from "../utils/navbar";
 
@@ -7,6 +7,7 @@ export const Root = () => {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Navigate to={"/home"} />} />
         <Route element={<Navbar />}>
           {" "}
           {navbar.map(({ path, Element, id }) => {

@@ -1,6 +1,12 @@
 import React from "react";
+import Filter from "../Filter";
+import { Container } from "./style";
 
 export const Home = () => {
-  return <div>Home</div>;
+  return (
+    <Container>
+      <Filter />
+    </Container>
+  );
 };
 export default Home;

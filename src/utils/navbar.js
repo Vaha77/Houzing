@@ -1,11 +1,12 @@
 import Generic from "../pages/Generic";
+import { HomePage } from "../pages/Home";
 
 export const navbar = [
   {
     id: 1,
     title: "Home",
     path: "/home",
-    Element: <Generic />,
+    Element: <HomePage />,
     search: "?",
     hidden: false,
     private: false,
