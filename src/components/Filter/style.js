@@ -1,23 +1,46 @@
 import styled from "styled-components";
 import { ReactComponent as home } from "../../asset/icons/Home.svg";
+import { ReactComponent as search } from "../../asset/icons/search.svg";
+import { ReactComponent as advanced } from "../../asset/icons/advanced.svg";
 const Container = styled.div`
   display: flex;
-  width: 100%;
   justify-content: center;
+  margin-top: 10px;
 `;
 const Wrapper = styled.div`
   display: flex;
   width: 1440px;
-  /* justify-content: center; */
 `;
-const Icon = styled.div`
-  position: absolute;
-  transform: translate(-50% -50%);
-  top: 50%;
-  left: 30px;
-`;
+const Icon = styled.div``;
 
 Icon.Home = styled(home)`
+  margin-right: 8px;
+`;
+Icon.Search = styled(search)`
+  margin-right: 8px;
   margin-top: 8px;
 `;
-export { Container, Wrapper, Icon };
+Icon.Advanced = styled(advanced)`
+  margin-right: 8px;
+`;
+
+const Advanced = styled.div`
+  width: fit-content;
+  height: fit-content;
+  background: #ffffff;
+  padding: 10px;
+`;
+Advanced.Title = styled.div`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0d263b;
+`;
+const Section = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+  justify-content: flex-end;
+`;
+export { Container, Wrapper, Icon, Advanced, Section };

@@ -46,5 +46,11 @@ const Wrapper = styled.div`
   margin-top: ${({ mt }) => `${mt}px`};
   margin-bottom: ${({ mb }) => `${mb}px`};
 `;
+const Icon = styled.div`
+  position: absolute;
+  transform: translate(-50% -50%);
+  top: 50%;
+  left: 30px;
+`;
 
-export { Container, Wrapper };
+export { Container, Wrapper, Icon };
