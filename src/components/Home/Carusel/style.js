@@ -7,7 +7,7 @@ const Container = styled(Carousel)`
 const Img = styled.img`
   background: black;
   width: 100%;
-  height: fit-content;
+  height: 570px;
 `;
 const Icon = styled.div``;
 Icon.Left = styled(arrow)`
