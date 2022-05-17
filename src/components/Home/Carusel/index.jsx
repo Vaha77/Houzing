@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Container, Icon, Img } from "./style";
-import img1 from "../../../asset/imgs/img1.png";
-import img2 from "../../../asset/imgs/img2.png";
+import img1 from "../../../asset/imgs/Baner.png";
+import img2 from "../../../asset/imgs/Baner2.png";
 export const Carusel = () => {
   const slider = useRef();
 
