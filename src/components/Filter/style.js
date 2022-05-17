@@ -5,7 +5,7 @@ import { ReactComponent as advanced } from "../../asset/icons/advanced.svg";
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin: 10px 0;
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -15,10 +15,10 @@ const Icon = styled.div``;
 
 Icon.Home = styled(home)`
   margin-right: 8px;
+  margin-top: 6px;
 `;
 Icon.Search = styled(search)`
   margin-right: 8px;
-  margin-top: 8px;
 `;
 Icon.Advanced = styled(advanced)`
   margin-right: 8px;

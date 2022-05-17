@@ -41,7 +41,7 @@ Icon.Right = styled(arrow)`
   position: absolute;
   top: 50%;
   right: 0px;
-  transform: translate(100%, -40%) rotate(180deg);
+  transform: translate(-100%, -40%) rotate(180deg);
   width: 45px;
   height: 45px;
   color: white;

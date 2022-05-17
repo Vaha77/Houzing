@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Container, Icon, Img } from "./style";
 import img1 from "../../../asset/imgs/img1.png";
 import img2 from "../../../asset/imgs/img2.png";
 export const Carusel = () => {
+  const slider = useRef();
+
   return (
     <>
-      <Icon.Left />
-      <Icon.Right />
-      <Container dots autoplay>
+      <Icon.Left onClick={() => slider.current.prev()} />
+      <Icon.Right onClick={() => slider.current.next()} />
+      <Container dots autoplay ref={slider}>
         <Img src={img1} />
         <Img src={img2} /> <Img src={img1} />
         <Img src={img2} /> <Img src={img1} />

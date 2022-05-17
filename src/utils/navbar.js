@@ -1,4 +1,5 @@
-import Generic from "../pages/Generic";
+import Contact from "../components/Contacts";
+import Properties from "../components/Properties";
 import { HomePage } from "../pages/Home";
 
 export const navbar = [
@@ -15,7 +16,7 @@ export const navbar = [
     id: 2,
     title: "Properties",
     path: "/properties",
-    Element: <Generic />,
+    Element: <Properties />,
 
     search: "?",
     hidden: false,
@@ -25,7 +26,7 @@ export const navbar = [
     id: 3,
     title: "Contacts",
     path: "/contacts",
-    Element: <Generic />,
+    Element: <Contact />,
 
     search: "?",
     hidden: false,
