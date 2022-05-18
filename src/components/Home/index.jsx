@@ -1,7 +1,7 @@
 import React from "react";
 import Filter from "../Filter";
+import Reacomendet from "../Recomendet";
 import Carusel from "./Carusel";
-import Second from "./second";
 import { Container } from "./style";
 
 export const Home = () => {
@@ -9,7 +9,7 @@ export const Home = () => {
     <Container>
       <Filter />
       <Carusel />
-      <Second />
+      <Reacomendet />
     </Container>
   );
 };

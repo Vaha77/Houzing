@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Desc, Title } from "./style";
 
-export const Second = () => {
+export const Reacomendet = () => {
   return (
     <Container>
       <Title>
@@ -13,4 +13,4 @@ export const Second = () => {
     </Container>
   );
 };
-export default Second;
+export default Reacomendet;
