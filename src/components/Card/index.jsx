@@ -36,18 +36,23 @@ export const Card = ({ info, mr }) => {
           FOR SALE
         </Button>
       </ButtonCont>
-      <Img src={info?.img || noimg} />
+      <Img src={info?.attachments[0]?.imgPath || noimg} />
 
       <InfoWrapper>
         <User>
-          <User.Img src={info?.user?.img || nouser} />
+          <User.Img src={info?.attachments[0]?.imgPath || nouser} />
         </User>
         <div className="subtitle">New Apartment Nice Wiew</div>
-        <div className="description">Quincy St, Brooklyn, NY, USA</div>
+        <div className="description">{info?.description} </div>
         <Info>
           <Info.Detail>
             <Icons.Divan />
-            <div className="description">{info?.bats || 0} Bats</div>
+            <div
+              className="description"
+              style={{ whiteSpace: "nowrap", overflow: "hidden" }}
+            >
+              {info?.bats || 0} Bats
+            </div>
           </Info.Detail>
           <Info.Detail>
             <Icons.Vanna />

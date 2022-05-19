@@ -19,7 +19,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  width: 1440px;
+  max-width: 1440px;
   padding-top: 48px;
 `;
 const FootCont = styled.div`

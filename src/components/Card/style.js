@@ -8,11 +8,12 @@ import { ReactComponent as vanna } from "../../asset/icons/vanna.svg";
 const Container = styled.div`
   position: relative;
   display: flex;
+  flex-grow: 10;
   flex-direction: column;
   background: #ffffff;
   border: 1px solid #e6e9ec;
   border-radius: 3px;
-  max-width: 380px;
+  max-width: 400px;
   min-width: 280px;
   height: 430px;
   margin-right: ${({ mr }) => mr && `${mr}px`};

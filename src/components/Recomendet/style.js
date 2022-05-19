@@ -12,10 +12,12 @@ const Wrapper = styled.div`
   width: 100%;
   position: relative;
   margin-top: 20px;
+  max-width: 1440px;
 `;
 const Carusel = styled.div`
+  max-width: 1440px;
+
   display: flex;
-  width: 1440px;
   .alice-carousel__prev-btn,
   .alice-carousel__next-btn {
     display: none;
