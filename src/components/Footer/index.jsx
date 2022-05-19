@@ -1,9 +1,12 @@
 import React from "react";
+import { Button } from "../Generic";
 import {
   Container,
+  ContLogo,
   FootCont,
   FootConts,
   Footers,
+  FootTitle,
   Icon,
   SubTitle,
   Title,
@@ -62,7 +65,18 @@ export const Footer = () => {
         </FootCont>
       </Wrapper>
       <Footers>
-        <FootConts>ss</FootConts>
+        <FootConts>
+          <ContLogo>
+            <Icon.Logo />
+            <FootTitle>Houzing</FootTitle>
+            <div className="">
+              Copyright © 2021 CreativeLayers. All Right Reserved.
+            </div>
+          </ContLogo>{" "}
+          <Button width="45px" ml={73} height="45px" type="primary">
+            ^
+          </Button>
+        </FootConts>
       </Footers>
     </Container>
   );

@@ -6,6 +6,7 @@ import { ReactComponent as facebook } from "../../asset/icons/sns1.svg";
 import { ReactComponent as twit } from "../../asset/icons/sns2.svg";
 import { ReactComponent as instagram } from "../../asset/icons/sns3.svg";
 import { ReactComponent as linkdin } from "../../asset/icons/sns4.svg";
+import { ReactComponent as logo } from "../../asset/icons/Logo.svg";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -13,24 +14,17 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background: var(--primaryColor);
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  border: 1px solid red;
   width: 1440px;
+  padding-top: 48px;
 `;
 const FootCont = styled.div`
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
   color: #ffffff;
 `;
 
@@ -55,6 +49,7 @@ const SubTitle = styled.div`
   margin-bottom: 20px;
 `;
 const Icon = styled.div`
+  margin-top: 32px;
   display: flex;
   gap: 32px;
 `;
@@ -92,8 +87,29 @@ const FootConts = styled.div`
   width: 1440px;
   display: flex;
   color: #ffffff;
+  padding: 26px 0 16px 0;
+`;
+Icon.Logo = styled(logo)`
+  margin-right: 12px;
+`;
+
+const ContLogo = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;
+const FootTitle = styled.div`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 24px;
+  color: #ffffff;
+  margin-right: auto;
 `;
 export {
+  FootTitle,
+  ContLogo,
   Container,
   Wrapper,
   FootCont,
