@@ -1,13 +1,47 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import noimg from "../../asset/imgs/noimg.png";
-import { Container, Footer, Icons, Img, Info, InfoWrapper } from "./style";
+import nouser from "../../asset/imgs/nouser.jpeg";
+import { Button } from "../Generic";
+import {
+  ButtonCont,
+  Container,
+  Footer,
+  Icons,
+  Img,
+  Info,
+  InfoWrapper,
+  User,
+} from "./style";
 
-export const Card = ({ info }) => {
+export const Card = ({ info, mr }) => {
+  const naviget = useNavigate();
   return (
-    <Container>
+    <Container mr={mr}>
+      <ButtonCont>
+        <Button
+          width="100px"
+          height="23px"
+          type="primary"
+          onClick={() => naviget("featured")}
+        >
+          FEATURED
+        </Button>
+        <Button
+          type="for"
+          width="100px"
+          height="23px"
+          onClick={() => naviget("for/sale")}
+        >
+          FOR SALE
+        </Button>
+      </ButtonCont>
       <Img src={info?.img || noimg} />
 
       <InfoWrapper>
+        <User>
+          <User.Img src={info?.user?.img || nouser} />
+        </User>
         <div className="subtitle">New Apartment Nice Wiew</div>
         <div className="description">Quincy St, Brooklyn, NY, USA</div>
         <Info>

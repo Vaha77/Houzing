@@ -1,6 +1,6 @@
 import Contact from "../components/Contacts";
-import Properties from "../components/Properties";
 import { HomePage } from "../pages/Home";
+import { PropertiesPage } from "../pages/Properties";
 
 export const navbar = [
   {
@@ -16,7 +16,7 @@ export const navbar = [
     id: 2,
     title: "Properties",
     path: "/properties",
-    Element: <Properties />,
+    Element: <PropertiesPage />,
 
     search: "?",
     hidden: false,

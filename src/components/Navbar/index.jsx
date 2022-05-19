@@ -10,6 +10,7 @@ import {
 } from "./style";
 import { navbar } from "../../utils/navbar";
 import Button from "../Generic/Button";
+import { Footer } from "../Footer";
 
 export const Navbar = () => {
   const naviget = useNavigate();
@@ -37,6 +38,7 @@ export const Navbar = () => {
       </Container>
 
       <Outlet />
+      <Footer />
     </Wrapper>
   );
 };

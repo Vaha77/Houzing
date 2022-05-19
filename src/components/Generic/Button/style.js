@@ -13,6 +13,11 @@ const getType = (type) => {
         color: "#ffffff",
         border: "none",
       };
+    case "for":
+      return {
+        background: "#0d263b",
+        color: "#ffffff",
+      };
     default:
       return {
         border: "1px solid #e6e9ec",

@@ -4,6 +4,7 @@ import { ReactComponent as logoIcon } from "../../asset/icons/Logo.svg";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
 `;
 const Container = styled.div`
   display: flex;

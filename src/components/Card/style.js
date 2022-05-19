@@ -6,6 +6,7 @@ import { ReactComponent as serdsa } from "../../asset/icons/serdsa.svg";
 import { ReactComponent as strelka } from "../../asset/icons/strelka.svg";
 import { ReactComponent as vanna } from "../../asset/icons/vanna.svg";
 const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   background: #ffffff;
@@ -14,6 +15,7 @@ const Container = styled.div`
   max-width: 380px;
   min-width: 280px;
   height: 430px;
+  margin-right: ${({ mr }) => mr && `${mr}px`};
 `;
 
 const Img = styled.img`
@@ -23,6 +25,7 @@ const Img = styled.img`
 `;
 const InfoWrapper = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   padding: 25px;
   padding-bottom: 0;
@@ -66,7 +69,7 @@ Icons.Strleka = styled(strelka)`
   }
   cursor: pointer;
 `;
-
+Icons.Vanna = styled(vanna)``;
 const Footer = styled.div`
   display: flex;
   border-top: 1px solid #e6e9ec;
@@ -74,6 +77,30 @@ const Footer = styled.div`
   height: 100%;
   padding: 0 20px;
 `;
+const User = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  right: 20px;
+  top: -23px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(13, 38, 59, 0.2);
+  overflow: hidden;
+`;
+User.Img = styled.img`
+  width: 43px;
+  height: 43px;
+  object-fit: cover;
+`;
+const ButtonCont = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  position: absolute;
+  width: 100%;
+`;
 
-Icons.Vanna = styled(vanna)``;
-export { Container, Img, InfoWrapper, Info, Icons, Footer };
+export { Container, Img, InfoWrapper, Info, Icons, Footer, User, ButtonCont };
