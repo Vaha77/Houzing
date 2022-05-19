@@ -16,7 +16,8 @@ export const Properties = () => {
       onSuccess: (res) => {
         setData(res?.dataList[0]);
       },
-    }
+    },
+    []
   );
 
   console.log(data, "res");
@@ -29,8 +30,8 @@ export const Properties = () => {
       </div>
       <Total className="description">{data.length}Total</Total>
       <Wrapper>
-        {data.map((value) => {
-          return <Card info={value} />;
+        {data.map((value, i) => {
+          return <Card key={i} info={value} />;
         })}
       </Wrapper>
     </Container>
