@@ -1,28 +1,25 @@
 import styled from "styled-components";
-// import { ReactComponent as arrow } from "../../../asset/icons/arrow.svg";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 96px;
-`;
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  position: relative;
-  padding-top: 26px;
-`;
-const Carusel = styled.div`
-  display: flex;
-  width: 1440px;
-  .alice-carousel__prev-btn,
-  .alice-carousel__next-btn {
-    display: none;
-  }
+  margin-top: 95px;
 `;
 
-const Arrowleft = styled.div`
+const Wrapper = styled("div")`
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+`;
+const Cards = styled("div")`
+  display: flex;
+  width: 1440px;
+  margin-top: 32px;
+  justify-content: space-between;
+`;
+
+const ArrowLeft = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;
@@ -52,11 +49,11 @@ const Arrowleft = styled.div`
   }
 `;
 
-const ArrowRight = styled(Arrowleft)`
-  left: 20px;
-  transform: translate(50% -100%);
+const ArrowRight = styled(ArrowLeft)`
+  left: 50px;
+  transform: translate(50%, -100%);
   padding-left: 0;
   padding-right: 10px;
 `;
 
-export { Container, Carusel, Wrapper, Arrowleft, ArrowRight };
+export { Container, Cards, ArrowLeft, Wrapper, ArrowRight };

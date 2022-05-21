@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import AliceCarousel from "react-alice-carousel";
 import Card from "../Card";
-import { Arrowleft, ArrowRight, Carusel, Container, Wrapper } from "./style";
+import { Container, Cards, ArrowLeft, Wrapper, ArrowRight } from "./style";
 
 export const Reacomendet = () => {
   const items = [
@@ -13,24 +13,27 @@ export const Reacomendet = () => {
   ];
   const slider = useRef();
   return (
-    <Container>
+    <Container className="nocopy">
       <div className="title center">Recommended</div>
       <div className="description center">
-        Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.
+        Siz orzu qilgan, siz izlagan shinam va arzon uylar.
       </div>
       <Wrapper>
-        <Carusel>
-          <AliceCarousel ref={slider} autoWidth items={items} />
-
+        <Cards>
+          <AliceCarousel
+            arrows={false}
+            ref={slider}
+            autoWidth
+            mouseTracking
+            items={items}
+          />
           <ArrowRight onClick={() => slider.current?.slidePrev()}>
-            {" "}
-            &lang;{" "}
+            &lang;
           </ArrowRight>
-          <Arrowleft onClick={() => slider.current?.slideNext()}>
-            {" "}
-            &rang;{" "}
-          </Arrowleft>
-        </Carusel>
+          <ArrowLeft onClick={() => slider.current?.slideNext()}>
+            &rang;
+          </ArrowLeft>
+        </Cards>
       </Wrapper>
     </Container>
   );
