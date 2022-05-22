@@ -6,6 +6,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   margin: 10px 0;
+  width: 100%;
+  padding: 0 130px;
 `;
 const Wrapper = styled.div`
   display: flex;

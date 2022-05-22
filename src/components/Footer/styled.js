@@ -14,13 +14,17 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background: var(--primaryColor);
+  width: 100%;
+  padding-top: 48px;
 `;
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
-  max-width: 1440px;
-  padding-top: 48px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 0 130px;
+  width: 100%;
+  max-width: var(--width);
 `;
 const FootCont = styled.div`
   display: flex;
@@ -45,7 +49,6 @@ const SubTitle = styled.div`
   font-size: 14px;
   line-height: 20px;
   color: #ffffff;
-  width: 280px;
   margin-bottom: 20px;
 `;
 const Icon = styled.div`
@@ -97,6 +100,7 @@ const ContLogo = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  padding: 0 130px;
 `;
 const FootTitle = styled.div`
   font-family: "Montserrat";

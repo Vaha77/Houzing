@@ -35,22 +35,23 @@ Icon.Left = styled(arrow)`
   }
 `;
 Icon.Right = styled(arrow)`
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   top: 50%;
   right: 0px;
   transform: translate(-100%, -40%) rotate(180deg);
+  /* transform: rotate(90deg); */
   width: 45px;
   height: 45px;
-  color: white;
-  background: white;
   padding: 12px;
+  color: black;
+  background: white;
   opacity: 0.5;
   border-radius: 50%;
-  z-index: 999;
   cursor: pointer;
+  z-index: 999;
   :hover {
     opacity: 0.97;
   }

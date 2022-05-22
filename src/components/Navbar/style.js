@@ -17,6 +17,7 @@ const Container = styled.div`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  padding: 0 130px;
 `;
 
 const NavbarWrapper = styled.div`
