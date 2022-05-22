@@ -3,18 +3,22 @@ import Filter from "../Filter";
 import { Container, Total, Wrapper } from "./style";
 import { Card } from "../Card";
 import { useQuery } from "react-query";
+import { useLocation } from "react-router-dom";
+
 const { REACT_APP_BASE_URL: url } = process.env;
 
 export const Properties = () => {
   const [data, setData] = useState([]);
+  const { search } = useLocation();
+  // console.log(location, "log");
   useQuery(
-    "get data",
+    ["get data", search],
     () => {
-      return fetch(`${url}/v1/houses/list`).then((res) => res.json());
+      return fetch(`${url}/v1/houses/list${search}`).then((res) => res.json());
     },
     {
       onSuccess: (res) => {
-        setData(res?.dataList[0]);
+        setData(res?.dataList[0] || []);
       },
     },
     []
@@ -28,9 +32,9 @@ export const Properties = () => {
       <div className="discription center">
         Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.
       </div>
-      <Total className="description">{data.length}Total</Total>
+      <Total className="description">{data?.length}Total</Total>
       <Wrapper>
-        {data.map((value, i) => {
+        {data?.map((value, i) => {
           return <Card key={i} info={value} />;
         })}
       </Wrapper>

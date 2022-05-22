@@ -42,36 +42,51 @@ export const Card = ({ info, mr }) => {
         <User>
           <User.Img src={info?.attachments[0]?.imgPath || nouser} />
         </User>
-        <div className="subtitle">New Apartment Nice Wiew</div>
-        <div className="description">{info?.description} </div>
+
+        <div
+          className="subtitle"
+          style={{ whiteSpace: "nowrap", overflow: "hidden" }}
+        >
+          {info?.description}
+        </div>
+        <div
+          className="description"
+          style={{ whiteSpace: "nowrap", overflow: "hidden" }}
+        >
+          {info?.name || "house"},{info?.address || "Address"},{" "}
+          {info?.city || "City"},{info?.country || "Country"}
+        </div>
         <Info>
           <Info.Detail>
             <Icons.Divan />
-            <div
-              className="description"
-              style={{ whiteSpace: "nowrap", overflow: "hidden" }}
-            >
-              {info?.bats || 0} Bats
+            <div className="description">
+              {info?.houseDetails?.beds || 0} Beds
             </div>
           </Info.Detail>
           <Info.Detail>
             <Icons.Vanna />
-            <div className="description">{info?.bats || 0} Baths</div>
+            <div className="description">
+              {info?.houseDetails?.bath || 0} Baths
+            </div>
           </Info.Detail>
           <Info.Detail>
             <Icons.Car />
-            <div className="description">{info?.bats || 0} Garage</div>
+            <div className="description">
+              {info?.houseDetails?.garage || 0} Garage
+            </div>
           </Info.Detail>
           <Info.Detail>
             <Icons.Ruller />
-            <div className="description">{info?.bats || 0} Sq Ft</div>
+            <div className="description">
+              {info?.houseDetails?.area || 0} Sq Ft
+            </div>
           </Info.Detail>
         </Info>
       </InfoWrapper>
       <Footer>
         <Info.Detail>
-          <div className="delitet description">18,00$</div>
-          <div className="subtitle">15,00$</div>
+          <div className="delitet description">{info?.salePrice || 0}$</div>
+          <div className="subtitle">{info?.price || 0}$</div>
         </Info.Detail>
         <Info.Detail className="endToRight">
           <div>
