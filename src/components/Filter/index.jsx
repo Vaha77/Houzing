@@ -3,11 +3,11 @@ import { Button, Input } from "../Generic";
 import { Advanced, Container, Icon, Section, Wrapper } from "./style";
 import { Popover } from "antd";
 import { useNavigate, useLocation } from "react-router-dom";
-import useSearch from "../../hooks/useSearch";
+// import useSearch from "../../hooks/useSearch";
 
 export const Filter = () => {
   const navigate = useNavigate();
-  const qury = useSearch();
+  // const query = useSearch();
   const { pathname } = useLocation();
   const onChange = ({ target }) => {
     const { value, name } = target;
@@ -23,7 +23,7 @@ export const Filter = () => {
         <Input
           onChange={onChange}
           name="ctiy"
-          defautValue={qury.get("city")}
+          // defaultValue={query.get("city")}
           placeholder={"City"}
         />
         <Input placeholder={"Zip code"} />
