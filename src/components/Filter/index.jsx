@@ -2,17 +2,20 @@ import React from "react";
 import { Button, Input } from "../Generic";
 import { Advanced, Container, Icon, Section, Wrapper } from "./style";
 import { Popover } from "antd";
-import { useNavigate, useLocation } from "react-router-dom";
-// import useSearch from "../../hooks/useSearch";
+import { useNavigate } from "react-router-dom";
+import useSearch from "../../hooks/useSearch";
+import UseReplace from "../../hooks/useReplace";
 
 export const Filter = () => {
   const navigate = useNavigate();
-  // const query = useSearch();
-  const { pathname } = useLocation();
+  const query = useSearch();
+  // console.log(useReplace());
+
   const onChange = ({ target }) => {
     const { value, name } = target;
-
-    navigate(`${pathname}?${name}=${value}`);
+    console.log(target, name);
+    navigate(`${UseReplace(name, value)}`);
+    // navigate(`${pathname}?${name}=${value}`);
   };
   const advancedSearch = (
     <Advanced>
@@ -23,7 +26,7 @@ export const Filter = () => {
         <Input
           onChange={onChange}
           name="ctiy"
-          // defaultValue={query.get("city")}
+          defaultValue={query.get("city")}
           placeholder={"City"}
         />
         <Input placeholder={"Zip code"} />
@@ -63,7 +66,7 @@ export const Filter = () => {
         <Popover
           placement="bottomRight"
           content={advancedSearch}
-          trigger={"click"}
+          trigger="click"
         >
           <Button width="131px" ml={20} type="secondary">
             <Icon.Advanced />

@@ -47,14 +47,14 @@ export const Card = ({ info, mr }) => {
           className="subtitle"
           style={{ whiteSpace: "nowrap", overflow: "hidden" }}
         >
-          {info?.description}
+          {info?.description || "description"}
         </div>
         <div
           className="description"
           style={{ whiteSpace: "nowrap", overflow: "hidden" }}
         >
-          {info?.name || "house"},{info?.address || "Address"},{" "}
-          {info?.city || "City"},{info?.country || "Country"}
+          {info?.name || "house"}, {info?.address || "Address"},{" "}
+          {info?.city || "City"} {info?.country || "Country"}
         </div>
         <Info>
           <Info.Detail>
