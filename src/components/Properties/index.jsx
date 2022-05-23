@@ -4,6 +4,7 @@ import { Container, Total, Wrapper } from "./style";
 import { Card } from "../Card";
 import { useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
+import useSearch from "../../hooks/useSearch";
 
 const { REACT_APP_BASE_URL: url } = process.env;
 
