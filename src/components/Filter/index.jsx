@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Input } from "../Generic";
 import { Advanced, Container, Icon, Section, Wrapper } from "./style";
 import { Popover } from "antd";
@@ -7,6 +7,8 @@ import useSearch from "../../hooks/useSearch";
 import UseReplace from "../../hooks/useReplace";
 
 export const Filter = () => {
+  const cityRef = useRef("");
+
   const navigate = useNavigate();
   const query = useSearch();
   // console.log(useReplace());
@@ -25,6 +27,7 @@ export const Filter = () => {
         <Input placeholder={"Region"} />
         <Input
           onChange={onChange}
+          ref={cityRef}
           name="ctiy"
           defaultValue={query.get("city")}
           placeholder={"City"}
@@ -41,6 +44,7 @@ export const Filter = () => {
       <Advanced.Title>Price</Advanced.Title>
       <Section>
         <Input placeholder={"Min price"} />
+        <Input placeholder={"Max price"} />
         <Input placeholder={"Max price"} />
       </Section>
       <Section>
