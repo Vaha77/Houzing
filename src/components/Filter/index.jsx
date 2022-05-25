@@ -45,7 +45,6 @@ export const Filter = () => {
       <Section>
         <Input placeholder={"Min price"} />
         <Input placeholder={"Max price"} />
-        <Input placeholder={"Max price"} />
       </Section>
       <Section>
         {" "}
