@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import AliceCarousel from "react-alice-carousel";
-import Card from "../Card";
+import Card from "../../Card";
 import { Container, Cards, ArrowLeft, Wrapper, ArrowRight } from "./style";
 
-export const Reacomendet = () => {
+export const Category = () => {
   const items = [
     <Card mr={20} />,
     <Card mr={20} />,
@@ -14,7 +14,7 @@ export const Reacomendet = () => {
   const slider = useRef();
   return (
     <Container className="nocopy">
-      <div className="title center">Recommended</div>
+      <div className="title center">Category</div>
       <div className="description center">
         Nulla quis curabitur velit volutpat auctor bibendum consectetur sit.
       </div>
@@ -38,4 +38,4 @@ export const Reacomendet = () => {
     </Container>
   );
 };
-export default Reacomendet;
+export default Category;

@@ -14,11 +14,11 @@ const Wrapper = styled("div")`
 `;
 const Cards = styled("div")`
   display: flex;
-  width: 1440px;
   .alice-carousel__prev-btn,
   .alice-carousel__next-btn {
     display: none;
   }
+  width: 1440px;
   margin-top: 32px;
   justify-content: space-between;
 `;
