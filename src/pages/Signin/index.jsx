@@ -1,15 +1,38 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Input, Button } from "../../components/Generic";
 import { Container, Wrapper } from "./style";
-import { useQuery } from "react-query";
-
+import { useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
+const { REACT_APP_BASE_URL: url } = process.env;
 export const Signin = () => {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
+  const navigate = useNavigate();
+  // useQuery
+  const { mutate } = useMutation((props) => {
+    return fetch(`${url}/public/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({ email, password: pw }),
+    });
+  });
 
   const onSubmit = () => {
     console.log(email);
     console.log(pw);
+    mutate("hey", {
+      onSuccess: (res) => {
+        localStorage.setItem("token", res?.authenticationToken);
+        console.log(res, "token");
+        if (res?.ok) navigate("/home");
+      },
+      onError: (res) => {
+        console.log(res, "error");
+      },
+    });
   };
 
   return (
