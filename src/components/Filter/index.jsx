@@ -1,50 +1,97 @@
-import React, { useRef } from "react";
+import React from "react";
 import { Button, Input } from "../Generic";
 import { Advanced, Container, Icon, Section, Wrapper } from "./style";
 import { Popover } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
-import UseReplace from "../../hooks/useReplace";
+import useReplace from "../../hooks/useReplace";
 
 export const Filter = () => {
-  const cityRef = useRef("");
+  // const countryRef = useRef("");
+  // const cityRef = useRef("");
+  // const regionRref = useRef("");
+  // const zipRef = useRef("");
+  // const roomRef = useRef("");
+  // const addressRef = useRef("");
+  // const HouseRef = useRef("");
+  // const minPricRef = useRef("");
+  // const maxPricRef = useRef("");
 
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const query = useSearch();
-  // console.log(useReplace());
 
   const onChange = ({ target }) => {
     const { value, name } = target;
-    console.log(target, name);
-    navigate(`${UseReplace(name, value)}`);
-    // navigate(`${pathname}?${name}=${value}`);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    navigate(`${pathname}${useReplace(name, value)}`);
   };
+
   const advancedSearch = (
     <Advanced>
       <Advanced.Title>Address</Advanced.Title>
       <Section>
-        <Input placeholder={"Country"} />
-        <Input placeholder={"Region"} />
         <Input
           onChange={onChange}
-          ref={cityRef}
-          name="ctiy"
+          name="country"
+          defaultValue={query.get("country")}
+          placeholder={"Country"}
+        />
+        <Input
+          onChange={onChange}
+          name="region"
+          defaultValue={query.get("region")}
+          placeholder={"Region"}
+        />
+        <Input
+          onChange={onChange}
+          name="city"
           defaultValue={query.get("city")}
           placeholder={"City"}
         />
-        <Input placeholder={"Zip code"} />
+        <Input
+          onChange={onChange}
+          name="zip_code"
+          defaultValue={query.get("zip_code")}
+          placeholder={"Zip code"}
+        />
       </Section>
       <Advanced.Title>Apartment info</Advanced.Title>
       <Section>
-        <Input placeholder={"Rooms"} />
-        <Input placeholder={"Size"} />
-        <Input placeholder={"Sort"} />
+        <Input
+          onChange={onChange}
+          name="room"
+          defaultValue={query.get("room")}
+          placeholder={"Rooms"}
+        />
+        <Input
+          onChange={onChange}
+          name="size"
+          defaultValue={query.get("size")}
+          placeholder={"Size"}
+        />
+        <Input
+          onChange={onChange}
+          name="sort"
+          defaultValue={query.get("sort")}
+          placeholder={"Sort"}
+        />
       </Section>
 
       <Advanced.Title>Price</Advanced.Title>
       <Section>
-        <Input placeholder={"Min price"} />
-        <Input placeholder={"Max price"} />
+        <Input
+          onChange={onChange}
+          name="min_price"
+          defaultValue={query.get("min_price")}
+          placeholder={"Min price"}
+        />
+        <Input
+          onChange={onChange}
+          name="max_price"
+          defaultValue={query.get("max_price")}
+          placeholder={"Max price"}
+        />
       </Section>
       <Section>
         {" "}
