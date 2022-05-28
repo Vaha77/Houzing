@@ -17,7 +17,7 @@ export const Signin = () => {
       },
 
       body: JSON.stringify({ email, password: pw }),
-    });
+    }).then((res) => res.json());
   });
 
   const onSubmit = () => {
@@ -25,9 +25,9 @@ export const Signin = () => {
     console.log(pw);
     mutate("hey", {
       onSuccess: (res) => {
-        localStorage.setItem("token", res?.authenticationToken);
         console.log(res);
-        if (res?.ok) navigate("/home");
+        localStorage.setItem("token", res?.authenticationToken);
+        if (res?.authenticationToken) navigate("/home");
       },
       onError: (res) => {
         console.log(res, "error");
