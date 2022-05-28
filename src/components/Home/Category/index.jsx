@@ -39,9 +39,7 @@ const Categoric = () => {
       onSuccess: (res) => {
         console.log(res, "res");
         let response = res?.List?.[0]?.map((value) => (
-          <div style={{ height: "200px", width: "200px" }}>
-            <Category title={value} />
-          </div>
+          <Category title={value} />
         ));
         setList(response || []);
       },
@@ -57,13 +55,7 @@ const Categoric = () => {
       </div>
       <Wrapper>
         <Cards>
-          <AliceCarousel
-            arrows={false}
-            ref={slider}
-            autoWidth
-            mouseTracking
-            items={list}
-          />
+          <AliceCarousel arrows={false} ref={slider} autoWidth items={list} />
           <ArrowRight onClick={() => slider.current?.slidePrev()}>
             &lang;
           </ArrowRight>
