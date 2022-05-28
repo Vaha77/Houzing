@@ -1,14 +1,27 @@
 import React, { useRef, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import { useQuery } from "react-query";
-import { Container, Cards, ArrowLeft, Wrapper, ArrowRight } from "./style";
+import {
+  Container,
+  Cards,
+  ArrowLeft,
+  Wrapper,
+  ArrowRight,
+  CategoryWrapper,
+  Img,
+} from "./style";
+import uy from "../../../asset/imgs/Baner.png";
 const { REACT_APP_BASE_URL: url } = process.env;
 
-const Title = ({ title }) => {
-  return <h1>{title}</h1>;
+const Category = ({ title }) => {
+  return (
+    <CategoryWrapper>
+      <Img src={uy} alt={uy} />
+    </CategoryWrapper>
+  );
 };
 
-const Category = () => {
+const Categoric = () => {
   const [list, setList] = useState([]);
 
   const slider = useRef();
@@ -27,13 +40,14 @@ const Category = () => {
         console.log(res, "res");
         let response = res?.List?.[0]?.map((value) => (
           <div style={{ height: "200px", width: "200px" }}>
-            <Title title={value} />
+            <Category title={value} />
           </div>
         ));
         setList(response || []);
       },
     }
   );
+  console.log(localStorage.getItem("token"));
 
   return (
     <Container>
@@ -61,4 +75,4 @@ const Category = () => {
     </Container>
   );
 };
-export default Category;
+export default Categoric;

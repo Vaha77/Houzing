@@ -26,7 +26,7 @@ export const Signin = () => {
     mutate("hey", {
       onSuccess: (res) => {
         localStorage.setItem("token", res?.authenticationToken);
-        console.log(res, "token");
+        console.log(res);
         if (res?.ok) navigate("/home");
       },
       onError: (res) => {

@@ -59,5 +59,35 @@ const ArrowRight = styled(ArrowLeft)`
   padding-left: 0;
   padding-right: 10px;
 `;
+const CategoryWrapper = styled.div`
+  display: flex;
+  position: relative;
+  width: 280px;
+  height: 350px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url(.jpg);
+  box-shadow: 0px 20px 38px rgba(0, 0, 0, 0.06),
+    0px 7px 46px rgba(0, 0, 0, 0.06), 0px 8px 15px rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+`;
+const Details = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-export { Container, Cards, ArrowLeft, Wrapper, ArrowRight };
+const Img = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+export {
+  Container,
+  Cards,
+  ArrowLeft,
+  Wrapper,
+  ArrowRight,
+  CategoryWrapper,
+  Details,
+  Img,
+};
