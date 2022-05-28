@@ -50,7 +50,7 @@ export const Signin = () => {
           value={pw}
           placeholder={"Password"}
         />
-        <Button onClick={onSubmit} type="secondary">
+        <Button onClick={onSubmit} type="primary">
           Logiin
         </Button>
       </Wrapper>
