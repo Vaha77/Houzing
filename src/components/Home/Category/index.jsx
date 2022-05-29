@@ -9,14 +9,16 @@ import {
   ArrowRight,
   CategoryWrapper,
   Img,
+  Details,
 } from "./style";
-import uy from "../../../asset/imgs/Baner.png";
+import uy from "../../../asset/imgs/ca.png";
 const { REACT_APP_BASE_URL: url } = process.env;
 
 const Category = ({ title }) => {
   return (
     <CategoryWrapper>
-      <Img src={uy} alt={uy} />
+      <Img src={uy} alt="sa" />
+      <Details>{title}</Details>
     </CategoryWrapper>
   );
 };
@@ -38,10 +40,10 @@ const Categoric = () => {
     {
       onSuccess: (res) => {
         console.log(res, "res");
-        let response = res?.List?.[0]?.map((value) => (
+        let respons = res?.dataList?.[0]?.map((value) => (
           <Category title={value} />
         ));
-        setList(response || []);
+        setList(respons || []);
       },
     }
   );
@@ -55,7 +57,13 @@ const Categoric = () => {
       </div>
       <Wrapper>
         <Cards>
-          <AliceCarousel arrows={false} ref={slider} autoWidth items={list} />
+          <AliceCarousel
+            arrows={false}
+            ref={slider}
+            autoWidth
+            mouseTracking
+            items={list}
+          />
           <ArrowRight onClick={() => slider.current?.slidePrev()}>
             &lang;
           </ArrowRight>
