@@ -4,7 +4,6 @@ import { Container, Total, Wrapper } from "./style";
 import { Card } from "../Card";
 import { useQuery } from "react-query";
 import { useLocation, useNavigate } from "react-router-dom";
-import useSearch from "../../hooks/useSearch";
 
 const { REACT_APP_BASE_URL: url } = process.env;
 
@@ -12,8 +11,6 @@ export const Properties = () => {
   const naviget = useNavigate();
   const [data, setData] = useState([]);
   const { search } = useLocation();
-  const query = useSearch();
-  // console.log(location, "log");
 
   useQuery(
     ["get data", search],
@@ -26,8 +23,6 @@ export const Properties = () => {
       },
     }
   );
-  // console.log(data, "res");
-  console.log(query.get("city"), "res");
 
   const onSelect = (id) => {
     naviget(`/properties:${id}`);
@@ -46,7 +41,7 @@ export const Properties = () => {
           return (
             <Card
               key={value.id}
-              onClick={onSelect(() => onSelect(value.id))}
+              onClick={() => onSelect(value.id)}
               info={value}
             />
           );

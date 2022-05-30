@@ -17,7 +17,6 @@ export const Root = () => {
           })}
         </Route>
         <Route element={<Navbar />}>
-          {" "}
           {navbar.map(({ path, Element, id, hidden, useParams }) => {
             return (
               (useParams || !hidden) && (

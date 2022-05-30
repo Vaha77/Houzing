@@ -26,9 +26,9 @@ export const navbar = [
     private: false,
   },
   {
-    id: 2,
+    id: 6,
     title: "Selected House",
-    path: "/properties/:id",
+    path: "/properties:id",
     Element: <SelectotHousePage />,
     useParams: true,
     search: "?",

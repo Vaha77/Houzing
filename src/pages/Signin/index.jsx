@@ -21,11 +21,8 @@ export const Signin = () => {
   });
 
   const onSubmit = () => {
-    console.log(email);
-    console.log(pw);
     mutate("hey", {
       onSuccess: (res) => {
-        console.log(res);
         localStorage.setItem("token", res?.authenticationToken);
         if (res?.authenticationToken) navigate("/home");
       },
