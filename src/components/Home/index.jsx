@@ -4,6 +4,7 @@ import Reacomendet from "../Recomendet";
 import Carusel from "./Carusel";
 import Category from "./Category";
 import { Container } from "./style";
+import Vermont from "./Vert";
 import Why from "./Why";
 
 export const Home = () => {
@@ -14,6 +15,7 @@ export const Home = () => {
       <Reacomendet />
       <Why />
       <Category />
+      <Vermont />
     </Container>
   );
 };

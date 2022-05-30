@@ -45,6 +45,7 @@ const Categoric = () => {
     },
     {
       onSuccess: (res) => {
+        console.log(res, "res");
         let respons = res?.dataList?.[0]?.map((value, index) => (
           <Category title={value} id={index + 1} />
         ));
@@ -52,6 +53,7 @@ const Categoric = () => {
       },
     }
   );
+  console.log(localStorage.getItem("token"));
 
   return (
     <Container>
