@@ -26,6 +26,7 @@ export const Filter = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     navigate(`${pathname}${useReplace(name, value)}`);
   };
+  const onClear = () => {};
 
   const advancedSearch = (
     <Advanced>
@@ -95,11 +96,8 @@ export const Filter = () => {
       </Section>
       <Section>
         {" "}
-        <Button width="131px" type="secondary">
-          Cancel
-        </Button>
-        <Button width="131px" type="primary">
-          Submit
+        <Button onClick={onClear} width="131px" type="primary">
+          Clear
         </Button>
       </Section>
     </Advanced>

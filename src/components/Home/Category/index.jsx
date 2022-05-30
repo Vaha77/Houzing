@@ -12,11 +12,17 @@ import {
   Details,
 } from "./style";
 import uy from "../../../asset/imgs/ca.png";
+import { useNavigate } from "react-router-dom";
 const { REACT_APP_BASE_URL: url } = process.env;
 
-const Category = ({ title }) => {
+const Category = ({ title, id }) => {
+  const navigate = useNavigate();
+
+  const goto = () => {
+    navigate(`/properties?category_id=${id}`);
+  };
   return (
-    <CategoryWrapper>
+    <CategoryWrapper onClick={goto}>
       <Img src={uy} alt="sa" />
       <Details>{title}</Details>
     </CategoryWrapper>
@@ -40,8 +46,8 @@ const Categoric = () => {
     {
       onSuccess: (res) => {
         console.log(res, "res");
-        let respons = res?.dataList?.[0]?.map((value) => (
-          <Category title={value} />
+        let respons = res?.dataList?.[0]?.map((value, index) => (
+          <Category title={value} id={index + 1} />
         ));
         setList(respons || []);
       },

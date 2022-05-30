@@ -14,10 +14,10 @@ import {
   User,
 } from "./style";
 
-export const Card = ({ info, mr }) => {
+export const Card = ({ info, mr, onClick }) => {
   const naviget = useNavigate();
   return (
-    <Container mr={mr}>
+    <Container onClick={onClick} mr={mr}>
       <ButtonCont>
         <Button
           width="100px"

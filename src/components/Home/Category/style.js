@@ -71,7 +71,7 @@ const CategoryWrapper = styled.div`
   box-shadow: 0px 20px 38px rgba(0, 0, 0, 0.06),
     0px 7px 46px rgba(0, 0, 0, 0.06), 0px 8px 15px rgba(0, 0, 0, 0.06);
   border-radius: 3px;
-  /* transform: matrix(-1, 0, 0, 1, 0, 0); */
+  cursor: pointer;
 `;
 const Details = styled.div`
   display: flex;
