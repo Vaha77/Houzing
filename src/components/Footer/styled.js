@@ -24,6 +24,8 @@ const Wrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 0 130px;
   width: 100%;
+  /* width: 1440px; */
+
   max-width: var(--width);
 `;
 const FootCont = styled.div`
@@ -87,10 +89,10 @@ const Footers = styled.div`
   border-top: 1px solid rgba(255, 255, 255, 0.15); ;
 `;
 const FootConts = styled.div`
-  width: 1440px;
+  width: 100%;
   display: flex;
   color: #ffffff;
-  padding: 26px 0 16px 0;
+  padding: 26px 130px 16px 0;
 `;
 Icon.Logo = styled(logo)`
   margin-right: 12px;

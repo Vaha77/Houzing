@@ -1,8 +1,9 @@
-import { Carousel } from "antd";
 import styled from "styled-components";
 import { ReactComponent as arrow } from "../../../asset/icons/arrow.svg";
-const Container = styled(Carousel)`
+const Container = styled.div`
+  margin-top: 96px;
   width: 100%;
+  /* opacity: 0.7; */
 `;
 const Img = styled.img`
   background: black;
