@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Filter from "../Filter";
-import { Container, Total, Wrapper } from "./style";
+import { Container, Show, Total, Wrapper } from "./style";
 import { Card } from "../Card";
 import { useQuery } from "react-query";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Button } from "../Generic";
 
 const { REACT_APP_BASE_URL: url } = process.env;
 
@@ -47,6 +48,11 @@ export const Properties = () => {
           );
         })}
       </Wrapper>
+      <Show>
+        <Button width="250px" height="44px" type="primary">
+          Show more
+        </Button>
+      </Show>
     </Container>
   );
 };

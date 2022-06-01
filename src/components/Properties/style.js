@@ -25,4 +25,7 @@ const Total = styled.div`
   width: 100%;
   padding: 0 130px;
 `;
-export { Container, Wrapper, Total };
+const Show = styled.div`
+  margin: 48px 0 96px 0;
+`;
+export { Container, Wrapper, Total, Show };
