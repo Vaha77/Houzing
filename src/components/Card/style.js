@@ -15,7 +15,7 @@ const Container = styled.div`
   border-radius: 3px;
   max-width: 380px;
   min-width: 280px;
-  height: 430px;
+  /* height: 430px; */
   margin-right: ${({ mr }) => mr && `${mr}px`};
 `;
 

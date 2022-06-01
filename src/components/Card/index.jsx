@@ -56,6 +56,11 @@ export const Card = ({ info, mr, onClick }) => {
           {info?.name || "house"}, {info?.address || "Address"},{" "}
           {info?.city || "City"} {info?.country || "Country"}
         </div>
+        <div>
+          {" "}
+          lat:{info?.location?.latitude} lng:
+          {info?.location?.longitude}
+        </div>
         <Info>
           <Info.Detail>
             <Icons.Divan />

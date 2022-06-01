@@ -2,12 +2,24 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "./style";
 import { useQuery } from "react-query";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+
 const { REACT_APP_BASE_URL: url } = process.env;
 
 const SelectotHouse = () => {
   const [state, setState] = useState({});
   const { id } = useParams();
   console.log(id);
+
+  const containerStyle = {
+    width: "880px",
+    height: "416px",
+  };
+
+  const center = {
+    lat: state?.location?.latitude,
+    lng: state?.location?.longitude,
+  };
   useQuery(
     "get data",
     () => {
@@ -27,10 +39,37 @@ const SelectotHouse = () => {
       refetchOnWindowFocus: false,
     }
   );
-  return <Container>{state?.description}
-  
-  
-  </Container>;
+
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: "AIzaSyAkkKvMyf8Tk3Q8s7MWXin6njbtjIjq2S4",
+  });
+
+  return (
+    <Container>
+      {state?.attachments?.map((value, i) => {
+        return (
+          <div key={i}>
+            <img src={value?.imgPath} alt="cs" />
+          </div>
+        );
+      })}{" "}
+      <h1> {state?.description}</h1>
+      <div>
+        {isLoaded && (
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={9}
+          >
+            {state?.location?.latitude && state?.location?.longitude && (
+              <Marker position={center} />
+            )}
+          </GoogleMap>
+        )}
+      </div>
+    </Container>
+  );
 };
 
 export default SelectotHouse;
