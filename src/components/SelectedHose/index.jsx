@@ -27,7 +27,10 @@ const SelectotHouse = () => {
       refetchOnWindowFocus: false,
     }
   );
-  return <Container>{state?.description}</Container>;
+  return <Container>{state?.description}
+  
+  
+  </Container>;
 };
 
 export default SelectotHouse;

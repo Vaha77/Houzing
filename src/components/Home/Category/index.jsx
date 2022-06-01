@@ -15,16 +15,16 @@ import uy from "../../../asset/imgs/ca.png";
 import { useNavigate } from "react-router-dom";
 const { REACT_APP_BASE_URL: url } = process.env;
 
-const Category = ({ title, id }) => {
+const Category = ({ value }) => {
   const navigate = useNavigate();
 
   const goto = () => {
-    navigate(`/properties?category_id=${id}`);
+    navigate(`/properties?category_id=${value?.id}`);
   };
   return (
     <CategoryWrapper onClick={goto}>
       <Img src={uy} alt="sa" />
-      <Details>{title}</Details>
+      <Details>{value?.name}</Details>
     </CategoryWrapper>
   );
 };
@@ -37,17 +37,13 @@ const Categoric = () => {
   useQuery(
     "",
     () => {
-      return fetch(`${url}/v1/categories`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }).then((res) => res.json());
+      return fetch(`${url}/v1/categories/list`).then((res) => res.json());
     },
     {
       onSuccess: (res) => {
         console.log(res, "res");
-        let respons = res?.data?.map((value, index) => (
-          <Category title={value} id={index + 1} />
+        let respons = res?.data?.map((value) => (
+          <Category value={value} key={value.id} />
         ));
         setList(respons || []);
       },
