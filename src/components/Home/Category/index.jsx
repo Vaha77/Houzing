@@ -37,7 +37,7 @@ const Categoric = () => {
   useQuery(
     "",
     () => {
-      return fetch(`${url}/v1/categories/list`).then((res) => res.json());
+      return fetch(`${url}/v1/categories/List`).then((res) => res.json());
     },
     {
       onSuccess: (res) => {
