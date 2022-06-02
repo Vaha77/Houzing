@@ -5,18 +5,21 @@ import { Card } from "../Card";
 import { useQuery } from "react-query";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "../Generic";
-
+import { useHttp } from "../../hooks/useHttp";
 const { REACT_APP_BASE_URL: url } = process.env;
 
 export const Properties = () => {
   const naviget = useNavigate();
   const [data, setData] = useState([]);
   const { search } = useLocation();
-
+  const { request } = useHttp();
   useQuery(
     ["get data", search],
     () => {
-      return fetch(`${url}/v1/houses/list${search}`).then((res) => res.json());
+      // return fetch(`${url}/v1/houses/list${search}`).then((res) => res.json());
+      return request({
+        url: `/v1/houses/list${search}`,
+      });
     },
     {
       onSuccess: (res) => {
