@@ -14,8 +14,6 @@ import {
 import uy from "../../../asset/imgs/ca.png";
 import { useNavigate } from "react-router-dom";
 import { useHttp } from "../../../hooks/useHttp";
-// const { REACT_APP_BASE_URL: url } = process.env;
-
 const Category = ({ value }) => {
   const navigate = useNavigate();
 
@@ -37,30 +35,15 @@ const Categoric = () => {
 
   const { request } = useHttp();
 
-  useQuery(
-    "",
-    () => request({ url: `/v1/categories/list` }),
-
-    // {
-    //   return fetch(`${url}/v1/categories`, {
-    //     headers: {
-    //       Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //     }
-
-    //     ,
-    //   }).then((res) => res.json());
-    // }
-
-    {
-      onSuccess: (res) => {
-        console.log(res, "res");
-        let respons = res?.data?.map((value) => (
-          <Category key={value.id} value={value} />
-        ));
-        setList(respons || []);
-      },
-    }
-  );
+  useQuery("", () => request({ url: `/v1/categories/list` }), {
+    onSuccess: (res) => {
+      console.log(res, "res");
+      let respons = res?.data?.map((value) => (
+        <Category key={value.id} value={value} />
+      ));
+      setList(respons || []);
+    },
+  });
   console.log(localStorage.getItem("token"));
 
   return (
