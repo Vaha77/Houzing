@@ -6,14 +6,22 @@ export const useHttp = () => {
     method = "GET",
     body = null,
     headers = {},
+    token = false,
   }) => {
+    if (token) {
+      headers["Authorization"] = `Bearer ${localStorage.getItem("token")}`;
+    }
+
     let res = await fetch(`${REACT_APP_BASE_URL}${url}`, {
       method,
       body,
       headers,
     }).then((res) => res.json());
-
-    console.log(res, "gen ses");
+    if (res?.success) {
+      return res;
+    } else {
+      throw new Error(res?.message || "sms yoq");
+    }
   };
 
   return { request };
