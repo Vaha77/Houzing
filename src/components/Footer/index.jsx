@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "../Generic";
 import {
   Container,
   ContLogo,
@@ -10,6 +9,7 @@ import {
   Icon,
   SubTitle,
   Title,
+  Top,
   Wrapper,
 } from "./styled";
 
@@ -73,9 +73,9 @@ export const Footer = () => {
               Copyright © 2021 CreativeLayers. All Right Reserved.
             </div>
           </ContLogo>{" "}
-          <Button width="45px" ml={73} height="45px" type="primary">
-            ^
-          </Button>
+          <Top>
+            <Top.Text>^</Top.Text>
+          </Top>
         </FootConts>
       </Footers>
     </Container>

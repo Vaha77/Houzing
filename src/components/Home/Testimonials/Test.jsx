@@ -5,7 +5,13 @@ const Test = () => {
   return (
     <div>
       <CardCont>
-        <Card>sc</Card>
+        <Card>
+          <div>
+            “ I believe in lifelong learning and Skola is a great place to learn
+            from experts. I've learned a lot and recommend it to all my friends
+            “
+          </div>
+        </Card>
       </CardCont>
     </div>
   );

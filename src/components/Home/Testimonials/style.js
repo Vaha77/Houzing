@@ -64,11 +64,38 @@ const CardCont = styled.div`
   display: flex;
 `;
 const Card = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
   width: 380px;
   height: 197px;
   background: #ffffff;
   box-shadow: 0px 10px 50px rgba(13, 38, 59, 0.1);
   border-radius: 3px;
+  padding: 40px 48px 61px 48px;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #696969;
+`;
+const Img = styled.img`
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  top: 140px;
+  left: -60%;
 `;
 
-export { Container, Cards, ArrowLeft, Wrapper, ArrowRight, CardCont, Card };
+export {
+  Container,
+  Cards,
+  ArrowLeft,
+  Wrapper,
+  ArrowRight,
+  CardCont,
+  Card,
+  Img,
+};

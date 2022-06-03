@@ -7,6 +7,8 @@ import { ReactComponent as twit } from "../../asset/icons/sns2.svg";
 import { ReactComponent as instagram } from "../../asset/icons/sns3.svg";
 import { ReactComponent as linkdin } from "../../asset/icons/sns4.svg";
 import { ReactComponent as logo } from "../../asset/icons/Logo.svg";
+import { BackTop } from "antd";
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -113,7 +115,23 @@ const FootTitle = styled.div`
   color: #ffffff;
   margin-right: auto;
 `;
+const Top = styled(BackTop)`
+  width: 45px;
+  height: 45px;
+  background: #0061df;
+  border-radius: 3px;
+  position: sticky;
+  color: wheat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+Top.Text = styled.div`
+  font-size: 32px;
+  margin-top: 20px;
+`;
 export {
+  Top,
   FootTitle,
   ContLogo,
   Container,
