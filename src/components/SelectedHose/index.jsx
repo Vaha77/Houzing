@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Container } from "./style";
 import { useQuery } from "react-query";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
+import Smilir from "./Similar";
 
 const { REACT_APP_BASE_URL: url } = process.env;
 
@@ -68,6 +69,7 @@ const SelectotHouse = () => {
           </GoogleMap>
         )}
       </div>
+      <Smilir />
     </Container>
   );
 };
