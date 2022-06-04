@@ -132,12 +132,7 @@ export const Filter = () => {
           defaultValue={state.max_price}
           placeholder={"Max price"}
         />
-        <Input
-          onChange={onChange}
-          name="max_price"
-          defaultValue={state.max_price}
-          placeholder={"Max price"}
-        />
+
         {/* <select name="" id="">
           {list.map((value, i) => {
             return (
