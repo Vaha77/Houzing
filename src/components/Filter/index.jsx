@@ -5,6 +5,8 @@ import { Popover } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
 import useReplace from "../../hooks/useReplace";
+// import { useHttp } from "../../hooks/useHttp";
+// import { useQuery } from "react-query";
 
 export const Filter = () => {
   // const countryRef = useRef("");
@@ -16,7 +18,7 @@ export const Filter = () => {
   // const HouseRef = useRef("");
   // const minPricRef = useRef("");
   // const maxPricRef = useRef("");
-
+  // const { request } = useHttp();
   const query = useSearch();
   const [state, setState] = useState({
     country: query.get("country"),
@@ -31,7 +33,7 @@ export const Filter = () => {
   });
   const navigate = useNavigate();
   const { pathname } = useLocation();
-
+  // const [list, setList] = useState([]);
   const onChange = ({ target }) => {
     const { value, name } = target;
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -40,8 +42,30 @@ export const Filter = () => {
   };
   const onClear = () => {
     navigate(`/properties`);
-    setState({});
+    setState({
+      country: "",
+      region: "",
+
+      city: "",
+      zip_code: "",
+
+      room: "",
+
+      size: "",
+
+      sort: "",
+      min_price: "",
+      max_price: "",
+    });
   };
+
+  // useQuery("", () => request({ url: `/v1/categories/list` }), {
+  //   onSuccess: (res) => {
+  //     console.log(res, "res");
+
+  //     setList(res?.data || []);
+  //   },
+  // });
 
   const advancedSearch = (
     <Advanced>
@@ -108,9 +132,17 @@ export const Filter = () => {
           defaultValue={state.max_price}
           placeholder={"Max price"}
         />
+        {/* <select name="" id="">
+          {list.map((value, i) => {
+            return (
+              <option key={i} value={value}>
+                {value}
+              </option>
+            );
+          })}
+        </select> */}
       </Section>
       <Section>
-        {" "}
         <Button onClick={onClear} width="131px" type="primary">
           Clear
         </Button>

@@ -44,7 +44,6 @@ const Categoric = () => {
       setList(respons || []);
     },
   });
-  console.log(localStorage.getItem("token"));
 
   return (
     <Container>
