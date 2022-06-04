@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Input } from "../Generic";
 import { Advanced, Container, Icon, Section, Wrapper } from "./style";
 import { Popover } from "antd";
@@ -17,16 +17,31 @@ export const Filter = () => {
   // const minPricRef = useRef("");
   // const maxPricRef = useRef("");
 
+  const query = useSearch();
+  const [state, setState] = useState({
+    country: query.get("country"),
+    region: query.get("region"),
+    city: query.get("city"),
+    zip_code: query.get("zip_code"),
+    room: query.get("room"),
+    size: query.get("size"),
+    sort: query.get("sort"),
+    min_price: query.get("min_price"),
+    max_price: query.get("max_price"),
+  });
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const query = useSearch();
 
   const onChange = ({ target }) => {
     const { value, name } = target;
     // eslint-disable-next-line react-hooks/rules-of-hooks
     navigate(`${pathname}${useReplace(name, value)}`);
+    setState({ ...state, [name]: value });
   };
-  const onClear = () => {};
+  const onClear = () => {
+    navigate(`/properties`);
+    setState({});
+  };
 
   const advancedSearch = (
     <Advanced>
@@ -35,25 +50,25 @@ export const Filter = () => {
         <Input
           onChange={onChange}
           name="country"
-          defaultValue={query.get("country")}
+          value={state.country}
           placeholder={"Country"}
         />
         <Input
           onChange={onChange}
           name="region"
-          defaultValue={query.get("region")}
+          value={state.region}
           placeholder={"Region"}
         />
         <Input
           onChange={onChange}
           name="city"
-          defaultValue={query.get("city")}
+          value={state.city}
           placeholder={"City"}
         />
         <Input
           onChange={onChange}
           name="zip_code"
-          defaultValue={query.get("zip_code")}
+          value={state.zip_code}
           placeholder={"Zip code"}
         />
       </Section>
@@ -62,19 +77,19 @@ export const Filter = () => {
         <Input
           onChange={onChange}
           name="room"
-          defaultValue={query.get("room")}
+          value={state.room}
           placeholder={"Rooms"}
         />
         <Input
           onChange={onChange}
           name="size"
-          defaultValue={query.get("size")}
+          value={state.size}
           placeholder={"Size"}
         />
         <Input
           onChange={onChange}
           name="sort"
-          defaultValue={query.get("sort")}
+          value={state.sort}
           placeholder={"Sort"}
         />
       </Section>
@@ -84,13 +99,13 @@ export const Filter = () => {
         <Input
           onChange={onChange}
           name="min_price"
-          defaultValue={query.get("min_price")}
+          value={state.min_price}
           placeholder={"Min price"}
         />
         <Input
           onChange={onChange}
           name="max_price"
-          defaultValue={query.get("max_price")}
+          defaultValue={state.max_price}
           placeholder={"Max price"}
         />
       </Section>
