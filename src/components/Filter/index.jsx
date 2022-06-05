@@ -5,8 +5,9 @@ import { Popover } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
 import useReplace from "../../hooks/useReplace";
-import { useHttp } from "../../hooks/useHttp";
+import UseReplace from "../../hooks/useReplace";
 import { useQuery } from "react-query";
+import { useHttp } from "../../hooks/useHttp";
 
 export const Filter = () => {
   // const countryRef = useRef("");
@@ -20,8 +21,6 @@ export const Filter = () => {
   // const maxPricRef = useRef("");
 
   //
-
-  const { request } = useHttp();
 
   const query = useSearch();
 
@@ -39,6 +38,7 @@ export const Filter = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const [list, setList] = useState([]);
+  const [def, setDef] = useState(query.get("category_id"));
   const onChange = ({ target }) => {
     const { value, name } = target;
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -59,11 +59,13 @@ export const Filter = () => {
       max_price: "",
     });
   };
-
-  useQuery("", () => request({ url: `/v1/categories` }), {
+  const onSelect = ({ target }) => {
+    setDef(target);
+    navigate(`${UseReplace("category_id", target)}`);
+  };
+  const { request } = useHttp();
+  useQuery("get data", () => request({ url: "/v1/categories/list" }), {
     onSuccess: (res) => {
-      console.log(res, "res");
-
       setList(res?.data || []);
     },
   });
@@ -134,13 +136,9 @@ export const Filter = () => {
           placeholder={"Max price"}
         />
 
-        <select name="" id="" defaultValue={query.get(`category_id`)}>
-          {list.map((value, i) => {
-            return (
-              <option key={i} value={value}>
-                {value}
-              </option>
-            );
+        <select name="" id="" DefaultValue={def} onChange={onSelect}>
+          {list.map((value) => {
+            return <option key={value?.id}>{value.name}</option>;
           })}
         </select>
       </Section>
