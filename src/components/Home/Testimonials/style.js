@@ -5,6 +5,7 @@ const Container = styled.div`
   flex-direction: column;
   margin-top: 95px;
   background: var(--why);
+  padding: 48px 0 0px 0;
 `;
 
 const Wrapper = styled("div")`
@@ -63,8 +64,11 @@ const ArrowRight = styled(ArrowLeft)`
 const CardCont = styled.div`
   display: flex;
 `;
+const Cont = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 const Card = styled.div`
-  position: relative;
   display: flex;
   justify-content: center;
   width: 380px;
@@ -81,12 +85,31 @@ const Card = styled.div`
   text-align: center;
   color: #696969;
 `;
+const Second = styled.div`
+  position: relative;
+`;
 const Img = styled.img`
   position: absolute;
-  width: 38px;
-  height: 38px;
-  top: 140px;
+  border-radius: 50%;
+  border: 3px solid white;
+  width: 42px;
+  height: 42px;
+  top: -20px;
   left: -60%;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(13, 38, 59, 0.2);
+`;
+const TitleBox = styled.div`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 37px 0 48px 0;
 `;
 
 export {
@@ -98,4 +121,7 @@ export {
   CardCont,
   Card,
   Img,
+  Cont,
+  Second,
+  TitleBox,
 };
