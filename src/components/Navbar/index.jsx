@@ -22,7 +22,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
 
   const [visible, setVisible] = useState(false);
-  const [placement, setPlacement] = useState("left");
+  const [placement] = useState("left");
 
   const showDrawer = () => {
     setVisible(true);
@@ -35,7 +35,7 @@ export const Navbar = () => {
     <Wrapper>
       <Container>
         <NavbarWrapper>
-          <MenuDrow setPlacement onClick={showDrawer} />
+          <MenuDrow onClick={showDrawer} />
           <Menu
             title=""
             placement={placement}
