@@ -39,7 +39,6 @@ export const Navbar = () => {
           <Menu
             title=""
             placement={placement}
-            width={350}
             onClose={onClose}
             visible={visible}
             // extra={
