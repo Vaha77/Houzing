@@ -25,6 +25,11 @@ const Cards = styled.div`
   justify-content: space-around;
   width: 100%;
   margin-top: 40px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 30px;
+    height: 60px;
+  }
 `;
 
 const Card = styled.div`
