@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Container } from "./style";
+import { Container, ImgCont } from "./style";
 import { useQuery } from "react-query";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import Smilir from "./Similar";
@@ -48,13 +48,15 @@ const SelectotHouse = () => {
 
   return (
     <Container>
-      {state?.attachments?.map((value, i) => {
-        return (
-          <div key={i}>
-            <img src={value?.imgPath} alt="cs" />
-          </div>
-        );
-      })}{" "}
+      <ImgCont>
+        {state?.attachments?.map((value, i) => {
+          return (
+            <div div key={i}>
+              <img src={value?.imgPath} alt="cs" />
+            </div>
+          );
+        })}
+      </ImgCont>
       <h1> {state?.description}</h1>
       <div>
         {isLoaded && (
