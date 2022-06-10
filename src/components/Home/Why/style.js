@@ -10,6 +10,12 @@ const Conatiner = styled.div`
   padding-top: 48px;
   height: 434px;
   background: var(--why);
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    gap: 20px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -27,8 +33,7 @@ const Cards = styled.div`
   margin-top: 40px;
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 0 30px;
-    height: 60px;
+    gap: 20px;
   }
 `;
 
@@ -64,6 +69,7 @@ const Desc = styled.div`
 
 const Img = styled.img`
   margin-bottom: 24px;
+  cursor: pointer;
 `;
 
 export { Conatiner, Wrapper, Cards, Desc, Card, Title, Img };
