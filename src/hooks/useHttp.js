@@ -17,6 +17,7 @@ export const useHttp = () => {
       body,
       headers,
     }).then((res) => res.json());
+
     if (res?.success) {
       return res;
     } else {

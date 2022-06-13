@@ -27,15 +27,17 @@ export const Signin = () => {
   });
 
   const onSubmit = () => {
-    mutate("hey", {
-      onSuccess: (res) => {
-        localStorage.setItem("token", res?.authenticationToken);
-        if (res?.authenticationToken) navigate("/home");
-      },
-      onError: (res) => {
-        console.log(res, "error");
-      },
-    });
+    mutate(
+      {},
+      {
+        onSuccess: (res) => {
+          if (res?.authenticationToken) {
+            localStorage.setItem("token", res?.authenticationToken);
+            navigate("/myproporties");
+          }
+        },
+      }
+    );
   };
 
   return (

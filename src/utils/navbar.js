@@ -1,4 +1,5 @@
 import Contact from "../components/Contacts";
+import MyProporties from "../components/MyProporties";
 import { HomePage } from "../pages/Home";
 import { PropertiesPage } from "../pages/Properties";
 import SelectotHousePage from "../pages/Properties/SelectedHose";
@@ -60,6 +61,16 @@ export const navbar = [
     path: "/signup",
     Element: <SiginUp />,
     search: "?",
+    hidden: true,
+    private: false,
+  },
+  {
+    id: 6,
+    title: "My Proporties",
+    path: "/myproporties",
+    Element: <MyProporties />,
+    search: "?",
+    useParams: true,
     hidden: true,
     private: false,
   },
