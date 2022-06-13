@@ -81,23 +81,6 @@ export const Filter = () => {
     }
   );
 
-  useQuery(
-    "getHouses",
-    () => {
-      return fetch(`${url}/v1/categories/${query.get("category_id")}`, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }).then((res) => res.json());
-    },
-    {
-      onSuccess: (res) => {
-        // setTitle(res?.data?.name || 'Properties')
-      },
-    }
-  );
-
   const advancedSearch = (
     <Advanced>
       <Advanced.Title>Address</Advanced.Title>
@@ -165,7 +148,7 @@ export const Filter = () => {
         />
 
         <select name="" id="" DefaultValue={def} onChange={onSelect}>
-          {list.map((value, index) => {
+          {list.map((value) => {
             return (
               <option key={value?.id} value={value?.id}>
                 {value?.name}
