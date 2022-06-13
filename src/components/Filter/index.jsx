@@ -7,7 +7,6 @@ import useSearch from "../../hooks/useSearch";
 import useReplace from "../../hooks/useReplace";
 import UseReplace from "../../hooks/useReplace";
 import { useQuery } from "react-query";
-import { useHttp } from "../../hooks/useHttp";
 
 export const Filter = () => {
   // const countryRef = useRef("");
@@ -63,12 +62,25 @@ export const Filter = () => {
     setDef(target);
     navigate(`${UseReplace("category_id", target)}`);
   };
-  const { request } = useHttp();
-  useQuery("get data", () => request({ url: "/v1/categories/list" }), {
-    onSuccess: (res) => {
-      setList(res?.data || []);
+  // const { request } = useHttp();
+  const { REACT_APP_BASE_URL: url } = process.env;
+  useQuery(
+    "",
+    () => {
+      return fetch(`${url}/v1/categories/list`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem(`token`)}`,
+        },
+      }).then((res) => res.json());
     },
-  });
+    {
+      onSuccess: (res) => {
+        console.log(res, "vxx res");
+
+        setList(res?.data || []);
+      },
+    }
+  );
 
   const advancedSearch = (
     <Advanced>
@@ -137,8 +149,12 @@ export const Filter = () => {
         />
 
         <select name="" id="" DefaultValue={def} onChange={onSelect}>
-          {list.map((value) => {
-            return <option key={value?.id}>{value.name}</option>;
+          {list.map((value, index) => {
+            return (
+              <option key={value?.id} value={value?.id}>
+                {value?.name}
+              </option>
+            );
           })}
         </select>
       </Section>
