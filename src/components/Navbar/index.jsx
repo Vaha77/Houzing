@@ -13,6 +13,7 @@ import {
   MenuDrow,
   NavbarBody,
   NavbarWrapper,
+  Profil,
   Span,
   User,
   Wrapper,
@@ -69,15 +70,33 @@ export const Navbar = () => {
               );
             })}
           </NavbarBody>
-          <Span>
-            <Button
-              class="loginn"
-              onClick={() => navigate("/signin")}
-              width={"120px"}
-            >
-              Login
-            </Button>
-          </Span>
+
+          {localStorage.getItem("token") ? (
+            <>
+              <Profil onClick={() => navigate("/myproporties")} />
+              <Button
+                class="loginn"
+                onClick={() => {
+                  localStorage.clear();
+                  navigate("/home");
+                }}
+                width={"120px"}
+              >
+                Log Out
+              </Button>
+            </>
+          ) : (
+            <Span>
+              <Button
+                class="loginn"
+                onClick={() => navigate("/signin")}
+                width={"120px"}
+              >
+                Login
+              </Button>
+            </Span>
+          )}
+
           <User />
         </NavbarWrapper>
       </Container>

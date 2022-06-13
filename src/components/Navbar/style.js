@@ -11,6 +11,8 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
+  padding: 0 130px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -117,6 +119,15 @@ const User = styled(user)`
     display: block;
   }
 `;
+const Profil = styled(user)`
+  width: 34px;
+  height: 34px;
+  margin-right: 20px;
+  display: flex;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
 
 const Menu = styled(Drawer)`
   .ant-drawer-header {
@@ -175,4 +186,5 @@ export {
   NavbarBody,
   Link,
   Logo,
+  Profil,
 };
