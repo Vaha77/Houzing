@@ -1,3 +1,4 @@
+import { Dropdown } from "antd";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { Outlet, useNavigate } from "react-router-dom";
@@ -50,7 +51,13 @@ export const Navbar = () => {
       },
     }
   );
-
+  const menu = (
+    <Me>
+      {data?.map((value, i) => {
+        return <div key={i}>{value?.user?.firstname}</div>;
+      })}
+    </Me>
+  );
   console.log(data, "navbar");
   return (
     <Wrapper>
@@ -95,11 +102,13 @@ export const Navbar = () => {
             <>
               <ContMe>
                 <Profil onClick={() => navigate("/myproporties")} />
-                <Me>
-                  {data?.map((value, i) => {
-                    return <div key={i}>{value?.user?.firstname}</div>;
-                  })}
-                </Me>
+
+                <Dropdown overlay={menu} placement="bottomRight" arrow>
+                  <div>
+                    <Button width={"120px"}>Me</Button>
+                    {/* <Container.Arrow /> */}
+                  </div>
+                </Dropdown>
               </ContMe>
 
               <Button

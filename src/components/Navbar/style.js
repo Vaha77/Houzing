@@ -174,11 +174,16 @@ const Links = styled(NavLink)`
 
 const ContMe = styled.div`
   display: flex;
+  @media (max-width: 769px) {
+    display: none;
+  }
 `;
 const Me = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 120px;
+  border: 1px solid white;
   justify-content: space-around;
-  border: 1px solid red;
   width: 120px;
   box-sizing: border-box;
 `;
