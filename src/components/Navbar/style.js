@@ -172,6 +172,16 @@ const Links = styled(NavLink)`
   border-bottom: 1px solid var(--secondaryColor);
 `;
 
+const ContMe = styled.div`
+  display: flex;
+`;
+const Me = styled.div`
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid red;
+  width: 120px;
+  box-sizing: border-box;
+`;
 export {
   Wrapper,
   Links,
@@ -187,4 +197,6 @@ export {
   Link,
   Logo,
   Profil,
+  ContMe,
+  Me,
 };

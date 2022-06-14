@@ -1,14 +1,18 @@
 import React, { useState } from "react";
+import { useQuery } from "react-query";
 import { Outlet, useNavigate } from "react-router-dom";
+import { useHttp } from "../../hooks/useHttp";
 import { navbar } from "../../utils/navbar";
 import Footer from "../Footer";
 import { Button } from "../Generic";
 import {
   Body,
   Container,
+  ContMe,
   Link,
   Links,
   Logo,
+  Me,
   Menu,
   MenuDrow,
   NavbarBody,
@@ -32,6 +36,22 @@ export const Navbar = () => {
   const onClose = () => {
     setVisible(false);
   };
+  const { request } = useHttp();
+  const [data, setData] = useState();
+  useQuery(
+    "get",
+    (res) => {
+      return request({ url: "/v1/houses/me", token: true });
+    },
+    {
+      onSuccess: (res) => {
+        console.log(res);
+        setData(res?.data || []);
+      },
+    }
+  );
+
+  console.log(data, "navbar");
   return (
     <Wrapper>
       <Container>
@@ -73,7 +93,15 @@ export const Navbar = () => {
 
           {localStorage.getItem("token") ? (
             <>
-              <Profil onClick={() => navigate("/myproporties")} />
+              <ContMe>
+                <Profil onClick={() => navigate("/myproporties")} />
+                <Me>
+                  {data?.map((value, i) => {
+                    return <div key={i}>{value?.user?.firstname}</div>;
+                  })}
+                </Me>
+              </ContMe>
+
               <Button
                 class="loginn"
                 onClick={() => {
