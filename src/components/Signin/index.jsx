@@ -75,7 +75,7 @@ export const Signin = () => {
           placeholder={"Password"}
           mt={40}
         />
-        {isValidEmail && (
+        {isValidPassword && (
           <div style={{ color: "red" }}>Eee aka biron nima yozing!</div>
         )}
         <Ceckbox>
