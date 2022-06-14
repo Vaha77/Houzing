@@ -5,7 +5,7 @@ import { PropertiesPage } from "../pages/Properties";
 import SelectotHousePage from "../pages/Properties/SelectedHose";
 import Signin from "../pages/Signin";
 import SiginUp from "../pages/Signup";
-
+import AddNew from "../pages/AddNew";
 export const navbar = [
   {
     id: 1,
@@ -69,6 +69,16 @@ export const navbar = [
     title: "My Proporties",
     path: "/myproporties",
     Element: <MyProporties />,
+    search: "?",
+    useParams: true,
+    hidden: true,
+    private: false,
+  },
+  {
+    id: 7,
+    title: "Add New ",
+    path: "/proporties/addnew",
+    Element: <AddNew />,
     search: "?",
     useParams: true,
     hidden: true,

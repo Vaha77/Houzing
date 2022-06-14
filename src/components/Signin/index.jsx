@@ -10,6 +10,7 @@ export const Signin = () => {
   //
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
+
   //
   const navigate = useNavigate();
 
@@ -21,7 +22,9 @@ export const Signin = () => {
       headers: {
         "Content-Type": "application/json",
       },
-
+      onError(err) {
+        console.log(err, "resds");
+      },
       body: JSON.stringify({ email: email, password: pw }),
     }).then((res) => res.json());
   });

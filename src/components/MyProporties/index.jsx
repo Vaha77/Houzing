@@ -3,9 +3,10 @@ import { useQuery } from "react-query";
 import { useHttp } from "../../hooks/useHttp";
 import Button from "../Generic/Button";
 import { Wrapper, Selection, Container, Card } from "./style";
-
+import { useNavigate } from "react-router-dom";
 const MyProporties = () => {
   const { request } = useHttp();
+  const navigate = useNavigate();
 
   const [data, setData] = useState();
   useQuery(
@@ -25,7 +26,11 @@ const MyProporties = () => {
     <Wrapper>
       <Selection>
         <div className="title">My Proporties</div>
-        <Button width={"131px"} type={"primary"}>
+        <Button
+          onClick={() => navigate("/proporties/addnew")}
+          width={"131px"}
+          type={"primary"}
+        >
           Add New
         </Button>
       </Selection>
