@@ -63,9 +63,7 @@ export const Signin = () => {
           value={email}
           placeholder={"Email"}
         />
-        {isValidEmail && (
-          <div style={{ color: "red" }}>Eee aka biron nima yozing!</div>
-        )}
+        {isValidEmail && <div style={{ color: "red" }}>Login kriting!</div>}
         <Input
           onChange={({ target }) => {
             setIsValidPassword(false);
@@ -76,7 +74,7 @@ export const Signin = () => {
           mt={40}
         />
         {isValidPassword && (
-          <div style={{ color: "red" }}>Eee aka biron nima yozing!</div>
+          <div style={{ color: "red" }}>Password kiriting!</div>
         )}
         <Ceckbox>
           <Checkbox>Remember me</Checkbox>
