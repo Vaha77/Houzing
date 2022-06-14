@@ -10,6 +10,8 @@ export const Signin = () => {
   //
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
+  const [isValidEmail, setIsValidEmail] = useState(false);
+  const [isValidPassword, setIsValidPassword] = useState(false);
 
   //
   const navigate = useNavigate();
@@ -22,25 +24,29 @@ export const Signin = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      onError(err) {
-        console.log(err, "resds");
-      },
       body: JSON.stringify({ email: email, password: pw }),
     }).then((res) => res.json());
   });
 
   const onSubmit = () => {
-    mutate(
-      {},
-      {
-        onSuccess: (res) => {
-          if (res?.authenticationToken) {
-            localStorage.setItem("token", res?.authenticationToken);
-            navigate("/myproporties");
-          }
-        },
-      }
-    );
+    if (!email) setIsValidEmail(true);
+    if (!pw) setIsValidPassword(true);
+    if (pw && email)
+      mutate(
+        {},
+        {
+          onSuccess: (res) => {
+            if (res?.authenticationToken) {
+              localStorage.setItem("token", res?.authenticationToken);
+              navigate("/myproporties");
+            }
+          },
+          onError: (err) => {
+            console.log("err");
+            console.log(err);
+          },
+        }
+      );
   };
 
   return (
@@ -50,16 +56,28 @@ export const Signin = () => {
         <div className="title">Sign In</div>
         <Input
           mt={60}
-          onChange={({ target }) => setEmail(target?.value)}
+          onChange={({ target }) => {
+            setIsValidEmail(false);
+            setEmail(target.value);
+          }}
           value={email}
           placeholder={"Email"}
         />
+        {isValidEmail && (
+          <div style={{ color: "red" }}>Eee aka biron nima yozing!</div>
+        )}
         <Input
-          onChange={({ target }) => setPw(target?.value)}
+          onChange={({ target }) => {
+            setIsValidPassword(false);
+            setPw(target.value);
+          }}
           value={pw}
           placeholder={"Password"}
           mt={40}
         />
+        {isValidEmail && (
+          <div style={{ color: "red" }}>Eee aka biron nima yozing!</div>
+        )}
         <Ceckbox>
           <Checkbox>Remember me</Checkbox>
           <a href="/signin">Forget</a>
