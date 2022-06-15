@@ -178,12 +178,12 @@ export const Filter = () => {
           content={advancedSearch}
           trigger="click"
         >
-          <Button width="131px" ml={20} type="secondary">
+          <Button width="131px" ml={"20px"} type="secondary">
             <Icon.Advanced />
             Advanced
           </Button>
         </Popover>
-        <Button width="131px" ml={20} type="primary">
+        <Button width="131px" ml={"20px"} type="primary">
           <Icon.Search />
           Search
         </Button>

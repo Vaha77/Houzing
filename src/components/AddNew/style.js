@@ -4,7 +4,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 32px 130px;
-  width: 100%;
+  /* width: 100%; */
 `;
 
 const Wrapper = styled.div`

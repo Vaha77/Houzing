@@ -45,7 +45,7 @@ const Container = styled.div`
   width: ${({ width }) => (width ? width : "100%")};
   border-radius: 2px;
   margin-right: ${({ mr }) => `${mr}px`};
-  margin-left: ${({ ml }) => `${ml}px`};
+  margin-left: ${({ ml }) => `${ml}`};
   margin-top: ${({ mt }) => `${mt}px`};
   margin-bottom: ${({ mb }) => `${mb}px`};
   cursor: pointer;

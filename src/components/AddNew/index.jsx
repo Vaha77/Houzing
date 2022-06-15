@@ -5,6 +5,7 @@ import Button from "../Generic/Button";
 import { Container, Section, Uplot, Wrapper } from "./style";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import Uploads from "./Upload";
+import Check from "./Checkbox";
 
 const AddNew = () => {
   const [center, setSenter] = useState({ lat: 41.311081, lng: 69.240562 });
@@ -142,8 +143,23 @@ const AddNew = () => {
 
       {/* 6 */}
       <Section>
-        <div className="suptitle">Amenities</div>
+        <div className="subtitle">Amenities</div>
+        <Check />
       </Section>
+
+      {/* 7 */}
+      <Section>
+        <div className="subtitle">Amenities</div>
+        <Wrapper>
+          <Input placeholder={"Energy class"} />
+          <Input placeholder={"Energy Index in kWh/m2a"} />
+        </Wrapper>
+      </Section>
+      <div className="endToRight">
+        <Button width={"288px"} mt={32} type={"primary"}>
+          Save
+        </Button>
+      </div>
     </Container>
   );
 };
