@@ -4,10 +4,9 @@ import { Advanced, Container, Icon, Section, Wrapper } from "./style";
 import { Popover } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
-import useReplace from "../../hooks/useReplace";
-import UseReplace from "../../hooks/useReplace";
+import useReplace from "../../hooks/UseReplace";
+import UseReplace from "../../hooks/UseReplace";
 import { useQuery } from "react-query";
-import { useHttp } from "../../hooks/useHttp";
 
 export const Filter = () => {
   // const countryRef = useRef("");
@@ -64,18 +63,20 @@ export const Filter = () => {
     navigate(`${UseReplace("category_id", target)}`);
   };
   // const { request } = useHttp();
-  // const { REACT_APP_BASE_URL: url } = process.env;
-  const { request } = useHttp();
+  const { REACT_APP_BASE_URL: url } = process.env;
   useQuery(
     "",
-    () =>
-      request({
-        url: "/v1/categories/list",
-        // headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
-      }),
+    () => {
+      return fetch(`${url}/v1/categories/list`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }).then((res) => res.json());
+    },
     {
       onSuccess: (res) => {
-        if (res?.data) setList(res?.data || []);
+        console.log(res, "vxx res");
+        setList(res?.data || []);
       },
     }
   );

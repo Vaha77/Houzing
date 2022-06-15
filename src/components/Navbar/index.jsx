@@ -1,4 +1,3 @@
-import { Dropdown } from "antd";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { Outlet, useNavigate } from "react-router-dom";
@@ -13,7 +12,6 @@ import {
   Link,
   Links,
   Logo,
-  Me,
   Menu,
   MenuDrow,
   NavbarBody,
@@ -47,17 +45,11 @@ export const Navbar = () => {
     {
       onSuccess: (res) => {
         console.log(res);
-        setData(res?.data || []);
+        setData(res?.data?.data || []);
       },
     }
   );
-  const menu = (
-    <Me>
-      {data?.map((value, i) => {
-        return <div key={i}>{value?.user?.firstname}</div>;
-      })}
-    </Me>
-  );
+
   console.log(data, "navbar");
   return (
     <Wrapper>
@@ -69,11 +61,6 @@ export const Navbar = () => {
             placement={placement}
             onClose={onClose}
             visible={visible}
-            // extra={
-            //     <Space>
-            //         <Button onClick={onClose}>Cancel</Button>
-            //     </Space>
-            // }
           >
             {navbar.map((item) => (
               <Links to={item.path} key={item.id}>
@@ -102,13 +89,6 @@ export const Navbar = () => {
             <>
               <ContMe>
                 <Profil onClick={() => navigate("/myproporties")} />
-
-                <Dropdown overlay={menu} placement="bottomRight" arrow>
-                  <div>
-                    <Button width={"120px"}>Me</Button>
-                    {/* <Container.Arrow /> */}
-                  </div>
-                </Dropdown>
               </ContMe>
 
               <Button

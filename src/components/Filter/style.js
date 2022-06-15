@@ -46,4 +46,31 @@ const Section = styled.div`
   justify-content: flex-end;
   gap: 20px;
 `;
-export { Container, Wrapper, Icon, Advanced, Section };
+
+const Inputs = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  justify-content: flex-end;
+  .ant-select-selector {
+    height: 45px !important;
+    display: flex;
+    align-items: center;
+  }
+  .ant-select-selection-item {
+    width: 120px;
+  }
+  .ant-select-arrow {
+    margin: 0;
+    transform: translate(-50%, -50%);
+  }
+`;
+
+// const Advanced = styled.div`
+//   width: fit-content;
+//   height: fit-content;
+//   background: #fff;
+//   border-radius: 5px;
+//   padding: 10px;
+// `;
+export { Container, Wrapper, Icon, Advanced, Section, Inputs };
