@@ -7,6 +7,10 @@ const getType = (type) => {
         border: "1px solid #e6e9ec",
         color: "#0d263b",
       };
+    case "upload":
+      return {
+        border: "1px solid  #0061DF",
+      };
     case "primary":
       return {
         background: "#0061df",
