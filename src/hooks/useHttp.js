@@ -10,11 +10,13 @@ export const useHttp = () => {
   }) => {
     if (token) {
       headers["Authorization"] = `Bearer ${localStorage.getItem("token")}`;
+      headers["Content-Type"] = `application/json`;
     }
-
+    let bod = (await method) === "POST" ? JSON.stringify(body) : body;
     let res = await fetch(`${REACT_APP_BASE_URL}${url}`, {
       method,
-      body,
+      body: bod,
+      // body: JSON.stringify(body),
       headers,
     }).then((res) => res.json());
 

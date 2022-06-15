@@ -4,6 +4,8 @@ import { useHttp } from "../../hooks/useHttp";
 import Button from "../Generic/Button";
 import { Wrapper, Selection, Container, Card } from "./style";
 import { useNavigate } from "react-router-dom";
+import { Col, Row } from "antd";
+
 const MyProporties = () => {
   const { request } = useHttp();
   const navigate = useNavigate();
@@ -23,26 +25,57 @@ const MyProporties = () => {
   );
   console.log(data, "data");
   return (
-    <Wrapper>
-      <Selection>
-        <div className="title">My Proporties</div>
-        <Button
-          onClick={() => navigate("/proporties/addnew")}
-          width={"131px"}
-          type={"primary"}
-        >
-          Add New
-        </Button>
-      </Selection>
+    <Container>
+      <Wrapper>
+        <Selection>
+          <div className="title">My Proporties</div>
+          <Button
+            onClick={() => navigate("/proporties/addnew")}
+            width={"131px"}
+            type={"primary"}
+          >
+            Add New
+          </Button>
+        </Selection>
 
-      <Card>
-        <Container>
-          {data?.map((value, i) => {
-            return <h1 key={i}>{value?.address}</h1>;
-          })}{" "}
-        </Container>
-      </Card>
-    </Wrapper>
+        <Card>
+          {/* <div className="subtitle">Listing Title</div>
+          <div>
+            {data?.map((value, i) => {
+              return <h1 key={i}>{value?.address}</h1>;
+            })}{" "}
+          </div> */}
+
+          <Row>
+            <Col span={5}>
+              <div className="subtitle">Listing Title</div>
+            </Col>
+            <Col span={5}>
+              <div className="subtitle"> Date Published</div>
+            </Col>
+            <Col span={4}>
+              <div className="subtitle">Status </div>
+            </Col>
+            <Col span={4}>
+              <div className="subtitle">View </div>
+            </Col>
+            <Col span={4}>
+              <div className="subtitle">Action </div>
+            </Col>
+          </Row>
+          {/*  */}
+          {
+            <Row>
+              <Col>
+                {data?.map((value, i) => {
+                  return <h1 key={i}>{value?.description}</h1>;
+                })}{" "}
+              </Col>
+            </Row>
+          }
+        </Card>
+      </Wrapper>
+    </Container>
   );
 };
 

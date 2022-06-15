@@ -6,8 +6,13 @@ import { Container, Section, Uplot, Wrapper } from "./style";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import Uploads from "./Upload";
 import Check from "./Checkbox";
+import { useHttp } from "../../hooks/useHttp";
+import { useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
 
 const AddNew = () => {
+  const { request } = useHttp();
+  const navigate = useNavigate();
   const [center, setSenter] = useState({ lat: 41.311081, lng: 69.240562 });
 
   const containerStyle = {
@@ -47,6 +52,79 @@ const AddNew = () => {
     setSenter({
       lat: e?.latLng?.lat(),
       lng: e?.latLng?.lng(),
+    });
+  };
+
+  const { mutate } = useMutation(() =>
+    request({
+      url: "/v1/houses",
+      method: "POST",
+      token: true,
+      body: {
+        address: "string",
+        attachments: [
+          {
+            imgPath:
+              "https://cdn.baccro.com/news/photo/201712/14724_35635_5919.jpg",
+          },
+        ],
+        categoryId: 0,
+        city: "string",
+        componentsDto: {
+          additional: "string",
+          airCondition: true,
+          courtyard: true,
+          furniture: true,
+          gasStove: true,
+          internet: true,
+          tv: true,
+        },
+        country: "대한민국",
+        description: "서울시 우수한옥",
+        favorite: true,
+        homeAmenitiesDto: {
+          additional: "string",
+          busStop: true,
+          garden: true,
+          market: true,
+          park: true,
+          parking: true,
+          school: true,
+          stadium: true,
+          subway: true,
+          superMarket: true,
+        },
+        houseDetails: {
+          area: 3,
+          bath: 2,
+          beds: 1,
+          garage: 2,
+          room: 20,
+          yearBuilt: 100,
+        },
+        locations: {
+          latitude: center?.lat,
+          longitude: center?.lng,
+        },
+        name: "string",
+        price: 0,
+        region: "서울 원서동",
+        salePrice: 0,
+        status: true,
+        zipCode: "string",
+      },
+    })
+  );
+
+  const onSubmit = () => {
+    mutate("", {
+      onSuccess: (res) => {
+        console.log(res, "cas");
+
+        if (res?.success) {
+          navigate("/myproporties");
+        }
+      },
     });
   };
 
@@ -156,7 +234,7 @@ const AddNew = () => {
         </Wrapper>
       </Section>
       <div className="endToRight">
-        <Button width={"288px"} mt={32} type={"primary"}>
+        <Button onClick={onSubmit} width={"288px"} mt={32} type={"primary"}>
           Save
         </Button>
       </div>

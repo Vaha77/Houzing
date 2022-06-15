@@ -7,6 +7,7 @@ import useSearch from "../../hooks/useSearch";
 import useReplace from "../../hooks/useReplace";
 import UseReplace from "../../hooks/useReplace";
 import { useQuery } from "react-query";
+import { useHttp } from "../../hooks/useHttp";
 
 export const Filter = () => {
   // const countryRef = useRef("");
@@ -63,20 +64,18 @@ export const Filter = () => {
     navigate(`${UseReplace("category_id", target)}`);
   };
   // const { request } = useHttp();
-  const { REACT_APP_BASE_URL: url } = process.env;
+  // const { REACT_APP_BASE_URL: url } = process.env;
+  const { request } = useHttp();
   useQuery(
     "",
-    () => {
-      return fetch(`${url}/v1/categories/list`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }).then((res) => res.json());
-    },
+    () =>
+      request({
+        url: "/v1/categories/list",
+        // headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+      }),
     {
       onSuccess: (res) => {
-        console.log(res, "vxx res");
-        setList(res?.data || []);
+        if (res?.data) setList(res?.data || []);
       },
     }
   );
