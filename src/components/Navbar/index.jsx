@@ -92,7 +92,6 @@ export const Navbar = () => {
               </ContMe>
 
               <Button
-                class="loginn"
                 onClick={() => {
                   localStorage.clear();
                   navigate("/home");
