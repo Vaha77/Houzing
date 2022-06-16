@@ -90,16 +90,17 @@ export const Navbar = () => {
               <ContMe>
                 <Profil onClick={() => navigate("/myproporties")} />
               </ContMe>
-
-              <Button
-                onClick={() => {
-                  localStorage.clear();
-                  navigate("/home");
-                }}
-                width={"120px"}
-              >
-                Log Out
-              </Button>
+              <div>
+                <Button
+                  onClick={() => {
+                    localStorage.clear();
+                    navigate("/home");
+                  }}
+                  width={"120px"}
+                >
+                  Log Out
+                </Button>
+              </div>
             </>
           ) : (
             <Span>
