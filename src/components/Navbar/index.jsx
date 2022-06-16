@@ -90,7 +90,7 @@ export const Navbar = () => {
               <ContMe>
                 <Profil onClick={() => navigate("/myproporties")} />
               </ContMe>
-              <div>
+              <Span>
                 <Button
                   onClick={() => {
                     localStorage.clear();
@@ -100,7 +100,7 @@ export const Navbar = () => {
                 >
                   Log Out
                 </Button>
-              </div>
+              </Span>
             </>
           ) : (
             <Span>
