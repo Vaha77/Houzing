@@ -123,7 +123,11 @@ const MyProporties = () => {
                     <Td>5933</Td>
                     <Td>
                       <Icons>
-                        <Icons.Edit />
+                        <Icons.Edit
+                          onClick={() =>
+                            navigate(`/proporties/addnew/${value?.id}`)
+                          }
+                        />
                         <Popconfirm
                           title="Are you sure to delete this task?"
                           onConfirm={() => confirm(value?.id)}

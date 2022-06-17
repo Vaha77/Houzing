@@ -65,7 +65,7 @@ const AddNew = () => {
         attachments: [
           {
             imgPath:
-              "https://cdn.baccro.com/news/photo/201712/14724_35635_5919.jpg",
+              "https://i.ytimg.com/vi/Kei4ihAmu9c/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDPdSmvnPRFeLXpiveh3qNZNYXY1g",
           },
         ],
         categoryId: 0,

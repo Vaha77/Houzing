@@ -84,4 +84,14 @@ export const navbar = [
     hidden: true,
     private: false,
   },
+  {
+    id: 8,
+    title: " Edit Item",
+    path: "/proporties/addnew/:id",
+    Element: <AddNew />,
+    search: "?",
+    useParams: true,
+    hidden: true,
+    private: false,
+  },
 ];
