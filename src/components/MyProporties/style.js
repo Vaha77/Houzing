@@ -1,5 +1,6 @@
 import styled from "styled-components";
-
+import { ReactComponent as edit } from "../../asset/icons/ruchka.svg";
+import { ReactComponent as musr } from "../../asset/icons/musr.svg";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -24,76 +25,27 @@ const Card = styled.div`
   border-radius: 3px;
   padding: 24px 30px;
   margin: 32px 0 100px 0;
-  tr {
-    display: flex;
-    justify-content: space-between;
-  }
-`;
-const SubTitleCont = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-const GenericCont = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const Cards = styled.div`
-  display: flex;
-
-  justify-content: space-between;
-`;
-const Cont1 = styled.img`
-  width: 113px;
-  height: 113px;
-  border-radius: 3px;
-`;
-const Cont2 = styled.div`
-  width: 113px;
-  height: 113px;
-  background: #c4c4c4;
-  border-radius: 3px;
-`;
-const Cont3 = styled.div`
-  width: 113px;
-  height: 113px;
-  background: #c4c4c4;
-  border-radius: 3px;
-`;
-const Cont4 = styled.div`
-  width: 113px;
-  height: 113px;
-  background: #c4c4c4;
-  border-radius: 3px;
+  width: 100%;
 `;
 
-const Cont5 = styled.div`
-  width: 113px;
-  height: 113px;
-  background: #c4c4c4;
-  border-radius: 3px;
+const Table = styled.table`
+  width: 100%;
 `;
-const Cont6 = styled.div`
-  width: 113px;
-  height: 113px;
-  background: #c4c4c4;
-  border-radius: 3px;
+const Tr = styled.tr`
+  margin: 5px 0;
+  height: 114px;
+`;
+const Td = styled.td``;
+const Th = styled.th``;
+const Icons = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+Icons.Edit = styled(edit)`
+  cursor: pointer;
+`;
+Icons.Musr = styled(musr)`
+  cursor: pointer;
 `;
 
-// const Cards = styled.div`
-//   display: flex;
-// `;
-export {
-  Container,
-  Wrapper,
-  Selection,
-  Card,
-  Cards,
-  Cont1,
-  SubTitleCont,
-  Cont2,
-  Cont3,
-  Cont4,
-  Cont5,
-  Cont6,
-  GenericCont,
-};
+export { Container, Wrapper, Selection, Card, Table, Td, Th, Tr, Icons };

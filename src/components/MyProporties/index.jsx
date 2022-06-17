@@ -2,9 +2,18 @@ import React, { useState } from "react";
 import { useQuery } from "react-query";
 import { useHttp } from "../../hooks/useHttp";
 import Button from "../Generic/Button";
-import { Wrapper, Selection, Container, Card } from "./style";
+import {
+  Wrapper,
+  Selection,
+  Container,
+  Card,
+  Table,
+  Tr,
+  Th,
+  Td,
+  Icons,
+} from "./style";
 import { useNavigate } from "react-router-dom";
-import { Col, Row } from "antd";
 
 const MyProporties = () => {
   const { request } = useHttp();
@@ -46,25 +55,50 @@ const MyProporties = () => {
             })}{" "}
           </div> */}
 
-          <Row>
-            <Col span={5}>
-              <div className="subtitle">Listing Title</div>
-            </Col>
-            <Col span={5}>
-              <div className="subtitle"> Date Published</div>
-            </Col>
-            <Col span={4}>
-              <div className="subtitle">Status </div>
-            </Col>
-            <Col span={4}>
-              <div className="subtitle">View </div>
-            </Col>
-            <Col span={4}>
-              <div className="subtitle">Action </div>
-            </Col>
-          </Row>
+          <Table>
+            <thead>
+              <Tr>
+                <Th>
+                  <div className="subtitle">Listing Title</div>
+                </Th>
+                <Th>
+                  <div className="subtitle"> Date Published</div>
+                </Th>
+                <Th>
+                  <div className="subtitle">Status </div>
+                </Th>
+                <Th>
+                  <div className="subtitle">View </div>
+                </Th>
+                <Th>
+                  <div className="subtitle">Action </div>
+                </Th>
+              </Tr>
+            </thead>
+
+            <tbody>
+              {" "}
+              {data?.map((value) => {
+                console.log(value, " valu");
+                return (
+                  <Tr key={value.id}>
+                    <Td>{value?.address}</Td>
+                    <Td>{new Date().getFullYear()}</Td>
+                    <Td>{value?.staus ? "Sotilmagan" : "Sotildi"}</Td>
+                    <Td>{value?.name}</Td>
+                    <Td>
+                      <Icons>
+                        <Icons.Edit />
+                        <Icons.Musr />
+                      </Icons>
+                    </Td>
+                  </Tr>
+                );
+              })}
+            </tbody>
+          </Table>
           {/*  */}
-          {
+          {/* {
             <Row>
               <Col>
                 {data?.map((value, i) => {
@@ -72,7 +106,7 @@ const MyProporties = () => {
                 })}{" "}
               </Col>
             </Row>
-          }
+          } */}
         </Card>
       </Wrapper>
     </Container>
