@@ -79,8 +79,8 @@ const AddNew = () => {
           internet: true,
           tv: true,
         },
-        country: "대한민국",
-        description: "서울시 우수한옥",
+        country: "대한민국2",
+        description: "서울시 우수한옥32",
         favorite: true,
         homeAmenitiesDto: {
           additional: "string",

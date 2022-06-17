@@ -32,8 +32,7 @@ const Table = styled.table`
   width: 100%;
 `;
 const Tr = styled.tr`
-  margin: 5px 0;
-  height: 114px;
+  height: 80px;
 `;
 const Td = styled.td``;
 const Th = styled.th`
@@ -63,6 +62,7 @@ const Img = styled.img`
   height: 113px;
   background: #c4c4c4;
   border-radius: 3px;
+  margin-bottom: 16px;
 `;
 
 export {
