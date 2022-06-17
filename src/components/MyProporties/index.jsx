@@ -51,14 +51,7 @@ const MyProporties = () => {
         </Selection>
 
         <Card>
-          {/* <div className="subtitle">Listing Title</div>
-          <div>
-            {data?.map((value, i) => {
-              return <h1 key={i}>{value?.address}</h1>;
-            })}{" "}
-          </div> */}
-
-          <Table>
+          <Table className="table table-hove">
             <thead>
               <Tr>
                 <Th>
@@ -78,9 +71,7 @@ const MyProporties = () => {
                 </Th>
               </Tr>
             </thead>
-
             <tbody>
-              {" "}
               {data?.map((value) => {
                 console.log(value, " valu");
                 return (
