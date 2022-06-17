@@ -4,8 +4,8 @@ import { Advanced, Container, Icon, Section, Wrapper } from "./style";
 import { Popover } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import useSearch from "../../hooks/useSearch";
-import useReplace from "../../hooks/UseReplace";
-import UseReplace from "../../hooks/UseReplace";
+import useReplace from "../../hooks/useReplace";
+import UseReplace from "../../hooks/useReplace";
 import { useQuery } from "react-query";
 
 export const Filter = () => {
