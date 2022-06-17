@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useQuery } from "react-query";
+import { useQuery, useMutation } from "react-query";
 import { useHttp } from "../../hooks/useHttp";
 import Button from "../Generic/Button";
 import {
@@ -17,25 +17,33 @@ import {
   Cont2,
 } from "./style";
 import { useNavigate } from "react-router-dom";
-
+import { message, Popconfirm } from "antd";
 const MyProporties = () => {
   const { request } = useHttp();
   const navigate = useNavigate();
 
-  const [data, setData] = useState();
-  useQuery(
-    "getMyProprties",
-    (res) => {
-      return request({ url: "/v1/houses/me", token: true });
-    },
-    {
+  const { data, refetch } = useQuery("getMyProprties", (res) => {
+    return request({ url: "/v1/houses/me", token: true });
+  });
+
+  const { mutate } = useMutation((id) => {
+    return request({ url: `/v1/houses/${id}`, method: "DELETE", token: true });
+  });
+
+  const confirm = (id) => {
+    mutate(id, {
       onSuccess: (res) => {
-        console.log(res);
-        setData(res?.data || []);
+        if (res?.success) message.success("Deleted");
+        refetch();
       },
-    }
-  );
-  console.log(data, "data");
+    });
+  };
+
+  const cancel = (e) => {
+    console.log(e);
+    message.error("Click on No");
+  };
+
   return (
     <Container>
       <Wrapper>
@@ -72,7 +80,7 @@ const MyProporties = () => {
               </Tr>
             </thead>
             <tbody>
-              {data?.map((value) => {
+              {data?.data?.map((value) => {
                 console.log(value, " valu");
                 return (
                   <Tr key={value.id}>
@@ -116,7 +124,16 @@ const MyProporties = () => {
                     <Td>
                       <Icons>
                         <Icons.Edit />
-                        <Icons.Musr />
+                        <Popconfirm
+                          title="Are you sure to delete this task?"
+                          onConfirm={() => confirm(value?.id)}
+                          onCancel={cancel}
+                          // okText="Yes"
+                          // cancelText="No"
+                        >
+                          {" "}
+                          <Icons.Musr />
+                        </Popconfirm>
                       </Icons>
                     </Td>
                   </Tr>
