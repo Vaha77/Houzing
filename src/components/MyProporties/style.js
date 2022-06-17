@@ -36,7 +36,9 @@ const Tr = styled.tr`
   height: 114px;
 `;
 const Td = styled.td``;
-const Th = styled.th``;
+const Th = styled.th`
+  text-align: left;
+`;
 const Icons = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -47,5 +49,33 @@ Icons.Edit = styled(edit)`
 Icons.Musr = styled(musr)`
   cursor: pointer;
 `;
+const Cont1 = styled.div`
+  display: flex;
+`;
+const Cont2 = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  cursor: pointer;
+`;
+const Img = styled.img`
+  width: 113px;
+  height: 113px;
+  background: #c4c4c4;
+  border-radius: 3px;
+`;
 
-export { Container, Wrapper, Selection, Card, Table, Td, Th, Tr, Icons };
+export {
+  Container,
+  Wrapper,
+  Selection,
+  Card,
+  Table,
+  Td,
+  Th,
+  Tr,
+  Icons,
+  Img,
+  Cont1,
+  Cont2,
+};

@@ -12,6 +12,9 @@ import {
   Th,
   Td,
   Icons,
+  Img,
+  Cont1,
+  Cont2,
 } from "./style";
 import { useNavigate } from "react-router-dom";
 
@@ -82,10 +85,43 @@ const MyProporties = () => {
                 console.log(value, " valu");
                 return (
                   <Tr key={value.id}>
-                    <Td>{value?.address}</Td>
+                    <Td>
+                      <Cont1>
+                        <div style={{ position: "absolute" }}>
+                          <Button
+                            width="81px"
+                            height="20px"
+                            type="primary"
+                            mt={5}
+                            ml={"5px"}
+                            // onClick={() => naviget("featured")}
+                          >
+                            FEATURED
+                          </Button>
+                        </div>
+                        <div style={{ marginRight: "16px" }}>
+                          <Img src={value?.attachments[0]?.imgPath} />{" "}
+                        </div>
+                        <Cont2>
+                          <div>
+                            <div className="subtitle">{value?.description}</div>
+                            <div className="discription">{value?.country}</div>
+                            <div className="delitet description">
+                              $ {value?.salePrice || 0}/mo
+                            </div>
+                            <div className="subtitle">
+                              ${value?.price || 0}/mo
+                            </div>
+                          </div>
+                          <Button type="for" width="81px" height="20px">
+                            FOR SALE
+                          </Button>
+                        </Cont2>
+                      </Cont1>
+                    </Td>
                     <Td>{new Date().getFullYear()}</Td>
-                    <Td>{value?.staus ? "Sotilmagan" : "Sotildi"}</Td>
-                    <Td>{value?.name}</Td>
+                    <Td> {value?.staus ? "Sotilmagan" : "Sotildi"}</Td>
+                    <Td>5933</Td>
                     <Td>
                       <Icons>
                         <Icons.Edit />
