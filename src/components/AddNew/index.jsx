@@ -16,10 +16,11 @@ const AddNew = () => {
   const navigate = useNavigate();
   const [center, setSenter] = useState({ lat: 41.311081, lng: 69.240562 });
   const [data, setData] = useState({});
+
   useQuery(
     "getSingle Item ",
     () => {
-      return request({ url: `/v1/houses/${id}`, token: true });
+      return id && request({ url: `/v1/houses/${id}`, token: true });
     },
     {
       onSuccess: (res) => {
@@ -129,18 +130,40 @@ const AddNew = () => {
     })
   );
 
-  const onSubmit = () => {
-    mutate("", {
-      onSuccess: (res) => {
-        console.log(res, "cas");
+  const { mutate: update } = useMutation((id) => {
+    return (
+      id &&
+      request({
+        url: `/v1/houses/${id}`,
+        method: "PUT",
+        token: true,
+        body: data,
+      })
+    );
+  });
 
-        if (res?.success) {
-          navigate("/myproporties");
-        }
-      },
-    });
+  const onSubmit = () => {
+    if (id) {
+      update(id);
+    } else {
+      mutate("", {
+        onSuccess: (res) => {
+          console.log(res, "cas");
+
+          if (res?.success) {
+            navigate("/myproporties");
+          }
+        },
+      });
+    }
   };
 
+  const onChange = ({ target: { name, value } }) => {
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
   return (
     <Container>
       <Section>
@@ -151,6 +174,8 @@ const AddNew = () => {
         </Wrapper>
         <Wrapper>
           <Input
+            name="description"
+            onChange={onChange}
             value={data?.description}
             placeholder={"Property Description* "}
           />
