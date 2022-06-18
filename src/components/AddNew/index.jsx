@@ -7,14 +7,27 @@ import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import Uploads from "./Upload";
 import Check from "./Checkbox";
 import { useHttp } from "../../hooks/useHttp";
-import { useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
+import { useMutation, useQuery } from "react-query";
+import { useNavigate, useParams } from "react-router-dom";
 
 const AddNew = () => {
+  const { id } = useParams();
   const { request } = useHttp();
   const navigate = useNavigate();
   const [center, setSenter] = useState({ lat: 41.311081, lng: 69.240562 });
-
+  const [data, setData] = useState({});
+  useQuery(
+    "getSingle Item ",
+    () => {
+      return request({ url: `/v1/houses/${id}`, token: true });
+    },
+    {
+      onSuccess: (res) => {
+        console.log(res, "edid");
+        setData(res?.data);
+      },
+    }
+  );
   const containerStyle = {
     width: "100%",
     height: "600px",
@@ -134,10 +147,13 @@ const AddNew = () => {
         <div className="subtitle ">Contact information</div>
         <Wrapper>
           <Input placeholder={"Property title*"} />
-          <Input placeholder={"Category"} />
+          <Input value={data?.category} placeholder={"Category"} />
         </Wrapper>
         <Wrapper>
-          <Input placeholder={"Property Description* "} />
+          <Input
+            value={data?.description}
+            placeholder={"Property Description* "}
+          />
         </Wrapper>
       </Section>
       {/* 2 */}
@@ -145,9 +161,9 @@ const AddNew = () => {
         <div className="subtitle ">Additional</div>
 
         <Wrapper>
-          <Input placeholder={"Baths"} />
-          <Input placeholder={"Bed"} />
-          <Input placeholder={"Garage"} />
+          <Input value={data?.houseDetails?.bath} placeholder={"Bath"} />
+          <Input value={data?.houseDetails?.beds} placeholder={"Bed"} />
+          <Input value={data?.houseDetails?.garage} placeholder={"Garage"} />
         </Wrapper>
         <Wrapper>
           <Input placeholder={"Year Build"} />

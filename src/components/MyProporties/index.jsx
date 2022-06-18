@@ -145,16 +145,6 @@ const MyProporties = () => {
               })}
             </tbody>
           </Table>
-          {/*  */}
-          {/* {
-            <Row>
-              <Col>
-                {data?.map((value, i) => {
-                  return <h1 key={i}>{value?.description}</h1>;
-                })}{" "}
-              </Col>
-            </Row>
-          } */}
         </Card>
       </Wrapper>
     </Container>
