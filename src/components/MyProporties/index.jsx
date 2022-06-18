@@ -43,7 +43,9 @@ const MyProporties = () => {
     console.log(e);
     message.error("Click on No");
   };
-
+  const onSelect = (id) => {
+    navigate(`/properties:${id}`);
+  };
   return (
     <Container>
       <Wrapper>
@@ -101,7 +103,7 @@ const MyProporties = () => {
                         <div style={{ marginRight: "16px" }}>
                           <Img src={value?.attachments[0]?.imgPath} />{" "}
                         </div>
-                        <Cont2>
+                        <Cont2 onClick={() => onSelect(value.id)}>
                           <div>
                             <div className="subtitle">{value?.description}</div>
                             <div className="discription">{value?.country}</div>
