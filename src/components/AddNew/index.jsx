@@ -9,6 +9,7 @@ import Check from "./Checkbox";
 import { useHttp } from "../../hooks/useHttp";
 import { useMutation, useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
+import { message } from "antd";
 
 const AddNew = () => {
   const { id } = useParams();
@@ -144,7 +145,14 @@ const AddNew = () => {
 
   const onSubmit = () => {
     if (id) {
-      update(id);
+      update(id, {
+        onSuccess: (res) => {
+          if (res?.success) {
+            message.info("updatett");
+            navigate("/myproporties");
+          }
+        },
+      });
     } else {
       mutate("", {
         onSuccess: (res) => {
