@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Input from "../Generic/Input";
 import Button from "../Generic/Button";
-import { Container, Section, Uplot, Wrapper } from "./style";
+import { Container, Section, Wrapper } from "./style";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import Uploads from "./Upload";
 import Check from "./Checkbox";
