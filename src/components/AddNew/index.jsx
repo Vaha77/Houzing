@@ -95,7 +95,7 @@ const AddNew = () => {
           tv: true,
         },
         country: "대한민국2",
-        description: "서울시 우수한옥32",
+        description: "menig uyim ",
         favorite: true,
         homeAmenitiesDto: {
           additional: "string",
