@@ -8,10 +8,10 @@ import { Container, Wrapper } from "./style";
 
 export const SigninUp = () => {
   // //
-  const [email, setEmail] = useState("");
-  const [pw, setPw] = useState("");
-  const [isValidEmail, setIsValidEmail] = useState(false);
-  const [isValidPassword, setIsValidPassword] = useState(false);
+  // const [email, setEmail] = useState("");
+  // const [pw, setPw] = useState("");
+  // const [isValidEmail, setIsValidEmail] = useState(false);
+  // const [isValidPassword, setIsValidPassword] = useState(false);
 
   // //
   // const navigate = useNavigate();
