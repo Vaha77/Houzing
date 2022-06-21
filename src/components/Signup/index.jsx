@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Input, Button, Checkbox } from "../../components/Generic";
-import { Ceckbox, Container, Wrapper } from "./style";
-import { useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { Input, Button } from "../../components/Generic";
+import { Container, Wrapper } from "./style";
+// import { useMutation } from "react-query";
+// import { useNavigate } from "react-router-dom";
 
-const { REACT_APP_BASE_URL: url } = process.env;
+// const { REACT_APP_BASE_URL: url } = process.env;
 
 export const SigninUp = () => {
   // //
