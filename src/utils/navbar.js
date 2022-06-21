@@ -4,8 +4,8 @@ import { HomePage } from "../pages/Home";
 import { PropertiesPage } from "../pages/Properties";
 import SelectotHousePage from "../pages/Properties/SelectedHose";
 import Signin from "../pages/Signin";
-import SiginUp from "../pages/Signup";
 import AddNew from "../pages/AddNew";
+import SigninUp from "../components/Signup";
 export const navbar = [
   {
     id: 1,
@@ -59,7 +59,7 @@ export const navbar = [
     id: 5,
     title: "SignUp",
     path: "/signup",
-    Element: <SiginUp />,
+    Element: <SigninUp />,
     search: "?",
     hidden: true,
     private: false,

@@ -53,7 +53,7 @@ export const Signin = () => {
     <Container>
       <Wrapper>
         {" "}
-        <div className="title">Sign In</div>
+        <div className="subtitle">Sign In</div>
         <Input
           mt={60}
           onChange={({ target }) => {
@@ -78,7 +78,9 @@ export const Signin = () => {
         )}
         <Ceckbox>
           <Checkbox>Remember me</Checkbox>
-          <a href="/signin">Forget</a>
+          <a href="/signup" onClick={() => navigate("signup")}>
+            Forget
+          </a>
         </Ceckbox>
         <Button mt={32} onClick={onSubmit} type="primary">
           Logiin
