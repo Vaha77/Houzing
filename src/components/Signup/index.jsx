@@ -4,7 +4,7 @@ import { Container, Wrapper } from "./style";
 import { useMutation } from "react-query";
 // import { useNavigate } from "react-router-dom";
 
-// const { REACT_APP_BASE_URL: url } = process.env;
+const { REACT_APP_BASE_URL: url } = process.env;
 
 export const SigninUp = () => {
   // //
