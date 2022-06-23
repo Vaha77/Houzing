@@ -7,7 +7,7 @@ export const Reviews = () => {
   return (
     <Container>
       <Title>4.67 (14 reviews)</Title>
-      <Wrapper mb={23}>
+      {/* <Wrapper mb={23}>
         <Wrapper>
           <Desc>Cleanliness</Desc>
           <Progress
@@ -15,7 +15,7 @@ export const Reviews = () => {
             status="active"
             width={"100%"}
             size="small"
-            percent={47}
+            percent={20}
           />
         </Wrapper>
         <Wrapper>
@@ -25,11 +25,11 @@ export const Reviews = () => {
             status="active"
             width={"100%"}
             size="small"
-            percent={57}
+            percent={20}
           />
         </Wrapper>
       </Wrapper>
-      <Wrapper mb={23}>
+      <Wrapper mb={20}>
         <Wrapper>
           <Desc>Communication</Desc>
           <Progress
@@ -37,7 +37,7 @@ export const Reviews = () => {
             status="active"
             width={"100%"}
             size="small"
-            percent={37}
+            percent={20}
           />
         </Wrapper>
         <Wrapper>
@@ -47,7 +47,7 @@ export const Reviews = () => {
             status="active"
             width={"100%"}
             size="small"
-            percent={87}
+            percent={20}
           />
         </Wrapper>
       </Wrapper>
@@ -59,7 +59,7 @@ export const Reviews = () => {
             status="active"
             width={"100%"}
             size="small"
-            percent={17}
+            percent={20}
           />
         </Wrapper>
         <Wrapper>
@@ -69,7 +69,7 @@ export const Reviews = () => {
             status="active"
             width={"100%"}
             size="small"
-            percent={57}
+            percent={20}
           />
         </Wrapper>
       </Wrapper>
@@ -114,7 +114,7 @@ export const Reviews = () => {
             also super friendly and passionate about Beşiktaş and Istanbul.{" "}
           </Desc>
         </Card>
-      </Wrapper>
+      </Wrapper> */}
     </Container>
   );
 };

@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  border: 1px solid red;
   margin-top: ${({ mt }) => mt && `${mt}px`};
   margin-bottom: ${({ mb }) => mb && `${mb}px`};
   gap: ${({ gap }) => (gap ? `${gap}px` : "100px")};

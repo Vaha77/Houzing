@@ -16,9 +16,7 @@ export const Second = ({ info }) => {
       <Wrapper>
         <Left>
           <Left.Wrapper>
-            <Left.Title>
-              {info?.country || "Luxury Family Loft by Victoria Park"}
-            </Left.Title>
+            <Left.Title>{info?.country || "Malumot Kiritilmagan "}</Left.Title>
             <Left.Wrapper>
               <Left.Icons>
                 <Left.Icon>
@@ -37,7 +35,7 @@ export const Second = ({ info }) => {
           </Left.Wrapper>
           <Left.Wrapper>
             <Left.Description>
-              {info?.region || "Quincy St, Brooklyn, NY, USA"}
+              {info?.region || "Malumot Kiritilmagan"}
             </Left.Description>
             <Left.Wrapper>
               <Left.SubDescription>{info?.salePrice}/mo</Left.SubDescription>
@@ -86,12 +84,10 @@ export const Second = ({ info }) => {
           {/* Description */}
           <Left.Subtitle>Description</Left.Subtitle>
           <Left.Description>
-            {info?.description ||
-              ` Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus neque eligendi fugit. Quaerat molestiae incidunt quidem totam molestias sint pariatur iste ratione quibusdam. Voluptates, assumenda fugit repellat reprehenderit voluptatum nisi.`}
+            {info?.description || ` Malumot Kiritilmagan`}
           </Left.Description>
           <Left.Description>
-            {info?.secondDisc ||
-              `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor modi optio necessitatibus quidem minima quaerat, suscipit consequuntur officiis? Aut voluptas, quam maxime ipsam nobis alias similique sint ipsa veniam quisquam?`}
+            {info?.secondDisc || `Malumot Kiritilmagan`}
           </Left.Description>
           <Left.ShowMore>Show More</Left.ShowMore>
           {/* Documents */}
@@ -114,18 +110,14 @@ export const Second = ({ info }) => {
             </Left.Wrapper>
           </Left.Wrapper>
           <Left.Line />
-          Map
+          {/* Map */}
           <Map />
           <Left.Line />
-          Property Details
           <PropertyDetails />
-          Features
           <Features />
           <Left.Line />
-          Schedule
           <Schedule />
           <Left.Line />
-          Reviews
           <Reviews />
           <Left.Line />
           Write a Review
