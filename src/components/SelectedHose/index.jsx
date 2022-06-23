@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Container, ImgCont } from "./style";
+import { Container, Wrapper } from "./style";
 import { useQuery } from "react-query";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import Smilir from "./Similar";
+import ImgModal from "./ImgModal/inde";
 
 const { REACT_APP_BASE_URL: url } = process.env;
 
@@ -48,30 +49,30 @@ const SelectotHouse = () => {
 
   return (
     <Container>
-      <ImgCont>
+      <Wrapper>
         {state?.attachments?.map((value, i) => {
           return (
-            <div div key={i}>
-              <img src={value?.imgPath} alt="cs" />
-            </div>
+            <span key={i}>
+              <ImgModal info={value?.imgPath} />
+            </span>
           );
         })}
-      </ImgCont>
-      <h1> {state?.description}</h1>
-      <div>
-        {isLoaded && (
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={9}
-          >
-            {state?.location?.latitude && state?.location?.longitude && (
-              <Marker position={center} />
-            )}
-          </GoogleMap>
-        )}
-      </div>
-      <Smilir />
+        <h1> {state?.description}</h1>
+        <div>
+          {isLoaded && (
+            <GoogleMap
+              mapContainerStyle={containerStyle}
+              center={center}
+              zoom={9}
+            >
+              {state?.location?.latitude && state?.location?.longitude && (
+                <Marker position={center} />
+              )}
+            </GoogleMap>
+          )}
+        </div>
+        <Smilir />
+      </Wrapper>
     </Container>
   );
 };

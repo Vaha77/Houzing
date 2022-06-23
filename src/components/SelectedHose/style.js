@@ -1,14 +1,20 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+`;
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  max-width: 1440px;
+  /* padding: 0 135px; */
+  width: 100%;
+  /* background-color: red; */
 `;
 
-const ImgCont = styled.div`
-  display: flex;
-  gap: 20px;
-`;
-export { Container, ImgCont };
+export { Container, Wrapper };
