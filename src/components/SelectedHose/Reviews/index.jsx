@@ -1,7 +1,7 @@
 import React from "react";
-import { Card, Container, Desc, Title, Wrapper } from "./style";
-import { Progress } from "antd";
-import user from "../../../asset/imgs/AVATAR.png";
+import { Container, Title } from "./style";
+// import { Progress } from "antd";
+// import user from "../../../asset/imgs/AVATAR.png";
 
 export const Reviews = () => {
   return (
