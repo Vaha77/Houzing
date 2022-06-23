@@ -4,18 +4,18 @@ import { Container, Wrapper } from "./style";
 import { useMutation } from "react-query";
 // import { useNavigate } from "react-router-dom";
 
-const { REACT_APP_BASE_URL: url } = process.env;
+// const { REACT_APP_BASE_URL: url } = process.env;
 
-const subscribe = async ({ email }) => {
-  const res = await fetch(`${url}/public/auth/register=${email}`);
-};
+// const subscribe = async ({ email }) => {
+//   const res = await fetch(`${url}/public/auth/register=${email}`);
+// };
 
 export const SigninUp = () => {
-  const [mutate, { isSuccess, isLoading, isError }] = useMutation((data) =>
-    subscribe(data)
-  );
+  // const [mutate, { isSuccess, isLoading, isError }] = useMutation((data) =>
+  //   subscribe(data)
+  // );
 
-  const onSubmit = (data) => mutate(data);
+  // const onSubmit = (data) => mutate(data);
 
   // //
   // const [email, setEmail] = useState("");
