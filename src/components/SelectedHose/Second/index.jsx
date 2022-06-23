@@ -2,10 +2,10 @@ import React from "react";
 import Features from "../Featres";
 import Map from "../Map";
 import Modal from "../Modal";
-import PropertyDetails from "../PropertyDetails";
-// import Reviews from "../Reviews";
-// import Schedule from "../Schedule";
-// import WriteAReview from "../WriteAReview";
+import PropertyDetails from "../Details";
+import Reviews from "../Reviews";
+import Schedule from "../Schedule";
+import WriteAReview from "../WriteAReview";
 import { Container, Left, Right, Wrapper } from "./style";
 
 export const Second = () => {
@@ -126,14 +126,14 @@ export const Second = () => {
           Features
           <Features />
           <Left.Line />
-          {/* Schedule */}
-          {/* <Schedule /> */}
+          Schedule
+          <Schedule />
           <Left.Line />
-          {/* Reviews */}
-          {/* <Reviews /> */}
+          Reviews
+          <Reviews />
           <Left.Line />
-          {/* Write a Review */}
-          {/* <WriteAReview /> */}
+          Write a Review
+          <WriteAReview />
         </Left>
         <Right>
           <Modal />
