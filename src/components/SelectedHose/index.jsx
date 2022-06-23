@@ -43,8 +43,7 @@ const SelectotHouse = () => {
             </span>
           );
         })}
-        <h1> {state?.description}</h1>
-        <Second />
+        <Second info={state} />
         <Smilir />
       </Wrapper>
     </Container>

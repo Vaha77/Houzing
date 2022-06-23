@@ -8,7 +8,7 @@ import Schedule from "../Schedule";
 import WriteAReview from "../WriteAReview";
 import { Container, Left, Right, Wrapper } from "./style";
 
-export const Second = () => {
+export const Second = ({ info }) => {
   //   const [state, setState] = useState();
 
   return (
@@ -16,7 +16,9 @@ export const Second = () => {
       <Wrapper>
         <Left>
           <Left.Wrapper>
-            <Left.Title>Luxury Family Loft by Victoria Park</Left.Title>
+            <Left.Title>
+              {info?.country || "Luxury Family Loft by Victoria Park"}
+            </Left.Title>
             <Left.Wrapper>
               <Left.Icons>
                 <Left.Icon>
@@ -34,10 +36,12 @@ export const Second = () => {
             </Left.Wrapper>
           </Left.Wrapper>
           <Left.Wrapper>
-            <Left.Description>Quincy St, Brooklyn, NY, USA</Left.Description>
+            <Left.Description>
+              {info?.region || "Quincy St, Brooklyn, NY, USA"}
+            </Left.Description>
             <Left.Wrapper>
-              <Left.SubDescription>$2,800/mo</Left.SubDescription>
-              <Left.Title>$7,500/mo</Left.Title>
+              <Left.SubDescription>{info?.salePrice}/mo</Left.SubDescription>
+              <Left.Title>{info?.price}/mo</Left.Title>
             </Left.Wrapper>
           </Left.Wrapper>
           <Left.Wrapper mt={25}>
@@ -46,7 +50,7 @@ export const Second = () => {
                 <Left.Icon>
                   <Left.Share />
                 </Left.Icon>
-                <Left.Text>4 Beds</Left.Text>
+                <Left.Text>{info?.beds || "23"} Beds</Left.Text>
               </Left.Icons>
 
               <Left.Icons>
@@ -82,20 +86,12 @@ export const Second = () => {
           {/* Description */}
           <Left.Subtitle>Description</Left.Subtitle>
           <Left.Description>
-            Occupying over 8,000 square feet, perched over 1,100 feet in the air
-            with breathtaking panoramic 360-degree views of all of New York City
-            and the surrounding tri-state area, The 82nd Floor at 432 Park
-            Avenue has been completely reimagined by one of the most
-            sought-after design houses in London and represents an utterly
-            unique opportunity to own a grobally significant property.
+            {info?.description ||
+              ` Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus neque eligendi fugit. Quaerat molestiae incidunt quidem totam molestias sint pariatur iste ratione quibusdam. Voluptates, assumenda fugit repellat reprehenderit voluptatum nisi.`}
           </Left.Description>
           <Left.Description>
-            Occupying over 8,000 square feet, perched over 1,100 feet in the air
-            with breathtaking panoramic 360-degree views of all of New York City
-            and the surrounding tri-state area, The 82nd Floor at 432 Park
-            Avenue has been completely reimagined by one of the most
-            sought-after design houses in London and represents an utterly
-            unique opportunity to own a grobally significant property.
+            {info?.secondDisc ||
+              `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor modi optio necessitatibus quidem minima quaerat, suscipit consequuntur officiis? Aut voluptas, quam maxime ipsam nobis alias similique sint ipsa veniam quisquam?`}
           </Left.Description>
           <Left.ShowMore>Show More</Left.ShowMore>
           {/* Documents */}
