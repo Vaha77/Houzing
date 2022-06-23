@@ -6,7 +6,17 @@ import { useMutation } from "react-query";
 
 const { REACT_APP_BASE_URL: url } = process.env;
 
+const subscribe = async ({ email }) => {
+  const res = await fetch(`${url}/public/auth/register=${email}`);
+};
+
 export const SigninUp = () => {
+  const [mutate, { isSuccess, isLoading, isError }] = useMutation((data) =>
+    subscribe(data)
+  );
+
+  const onSubmit = (data) => mutate(data);
+
   // //
   // const [email, setEmail] = useState("");
   // const [pw, setPw] = useState("");
