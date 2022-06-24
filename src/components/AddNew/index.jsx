@@ -8,7 +8,7 @@ import Uploads from "./Upload";
 import Check from "./Checkbox";
 import { useHttp } from "../../hooks/useHttp";
 import { useMutation, useQuery } from "react-query";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { message } from "antd";
 
 const AddNew = () => {
@@ -16,20 +16,100 @@ const AddNew = () => {
   const { request } = useHttp();
   const navigate = useNavigate();
   const [center, setSenter] = useState({ lat: 41.311081, lng: 69.240562 });
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    address: "string",
+    attachments: [
+      {
+        imgPath:
+          "https://i.ytimg.com/vi/Kei4ihAmu9c/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDPdSmvnPRFeLXpiveh3qNZNYXY1g",
+      },
+    ],
+    categoryId: 0,
+    city: "string",
+    componentsDto: {
+      additional: "string",
+      airCondition: true,
+      courtyard: true,
+      furniture: true,
+      gasStove: true,
+      internet: true,
+      tv: true,
+    },
+    country: "",
+    description: " ",
+    favorite: true,
+    homeAmenitiesDto: {
+      additional: "string",
+      busStop: true,
+      garden: true,
+      market: true,
+      park: true,
+      parking: true,
+      school: true,
+      stadium: true,
+      subway: true,
+      superMarket: true,
+    },
+    houseDetails: {
+      area: "",
+      bath: "",
+      beds: "",
+      garage: "",
+      room: "",
+      yearBuilt: "",
+    },
+    locations: {
+      latitude: center?.lat,
+      longitude: center?.lng,
+    },
+    name: "",
+    price: "",
+    region: "",
+    salePrice: "",
+    status: true,
+    zipCode: "string",
+  });
+  const location = useLocation();
+  const onChange = ({ target }) => {
+    const { value, name } = target;
+    setData({ ...data, [name]: value });
+  };
 
+  const createPostCheck = ({ target }) => {
+    setData({
+      ...data,
+      homeAmenitiesDto: {
+        ...data.homeAmenitiesDto,
+        [target.name]: target.checked,
+      },
+    });
+  };
+  const createPost = ({ target }) => {
+    setData({
+      ...data,
+      houseDetails: { ...data.houseDetails, [target.name]: target.value },
+    });
+  };
   useQuery(
-    "getSingle Item ",
+    "get single item",
     () => {
-      return id && request({ url: `/v1/houses/${id}`, token: true });
+      return (
+        location.pathname === `/profile/add/${id}` &&
+        fetch(`url: /v1/houses/${id}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")} `,
+          },
+        }).then((res) => res.json())
+      );
     },
     {
-      onSuccess: (res) => {
-        console.log(res, "edid");
-        setData(res?.data);
-      },
+      onSuccess: (res) =>
+        location.pathname === `/profile/add/${id}` && setData(res?.data),
     }
   );
+
   const containerStyle = {
     width: "100%",
     height: "600px",
@@ -70,77 +150,26 @@ const AddNew = () => {
     });
   };
 
-  const { mutate } = useMutation(() =>
-    request({
-      url: "/v1/houses",
+  const { mutate } = useMutation((props) => {
+    return fetch(`url: /v1/houses`, {
       method: "POST",
-      token: true,
-      body: {
-        address: "string",
-        attachments: [
-          {
-            imgPath:
-              "https://i.ytimg.com/vi/Kei4ihAmu9c/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDPdSmvnPRFeLXpiveh3qNZNYXY1g",
-          },
-        ],
-        categoryId: 0,
-        city: "string",
-        componentsDto: {
-          additional: "string",
-          airCondition: true,
-          courtyard: true,
-          furniture: true,
-          gasStove: true,
-          internet: true,
-          tv: true,
-        },
-        country: "",
-        description: " ",
-        favorite: true,
-        homeAmenitiesDto: {
-          additional: "string",
-          busStop: true,
-          garden: true,
-          market: true,
-          park: true,
-          parking: true,
-          school: true,
-          stadium: true,
-          subway: true,
-          superMarket: true,
-        },
-        houseDetails: {
-          area: "",
-          bath: "",
-          beds: "",
-          garage: "",
-          room: "",
-          yearBuilt: "",
-        },
-        locations: {
-          latitude: center?.lat,
-          longitude: center?.lng,
-        },
-        name: "",
-        price: "",
-        region: "",
-        salePrice: "",
-        status: true,
-        zipCode: "string",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-    })
-  );
+      body: JSON.stringify(data),
+    }).then((res) => res.json());
+  });
 
   const { mutate: update } = useMutation((id) => {
-    return (
-      id &&
-      request({
-        url: `/v1/houses/${id}`,
-        method: "PUT",
-        token: true,
-        body: data,
-      })
-    );
+    return fetch(`url: /v1/houses/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify(data),
+    }).then((res) => res.json());
   });
 
   const onSubmit = () => {
@@ -166,28 +195,6 @@ const AddNew = () => {
     }
   };
 
-  const onChange = ({ target: { name, value } }) => {
-    setData({
-      ...data,
-      [name]: value,
-    });
-  };
-
-  const createPostCheck = ({ target }) => {
-    setData({
-      ...data,
-      homeAmenitiesDto: {
-        ...data.homeAmenitiesDto,
-        [target.name]: target.checked,
-      },
-    });
-  };
-  const createPost = ({ target }) => {
-    setData({
-      ...data,
-      houseDetails: { ...data.houseDetails, [target.name]: target.value },
-    });
-  };
   return (
     <Container>
       <Section>
