@@ -173,22 +173,25 @@ const AddNew = () => {
   });
 
   const onSubmit = () => {
-    if (id) {
+    if (location.pathname === `/profile/add/${id}`) {
       update(id, {
         onSuccess: (res) => {
           if (res?.success) {
-            message.info("updatett");
-            navigate("/myproporties");
+            message.success("Succesfuly updated");
+            navigate("/profile");
+          } else {
+            message.error("something is wrong");
           }
         },
       });
     } else {
       mutate("", {
         onSuccess: (res) => {
-          console.log(res, "cas");
-
           if (res?.success) {
-            navigate("/myproporties");
+            message.success("Succesfuly added");
+            navigate("/profile");
+          } else {
+            message.error("something is wrong");
           }
         },
       });
@@ -200,7 +203,12 @@ const AddNew = () => {
       <Section>
         <div className="subtitle ">Contact information</div>
         <Wrapper>
-          <Input placeholder={"Property title*"} />
+          <Input
+            value={data?.name}
+            name={"name"}
+            onChange={onChange}
+            placeholder={"Property title*"}
+          />
           <Input value={data?.category} placeholder={"Category"} />
         </Wrapper>
         <Wrapper>
