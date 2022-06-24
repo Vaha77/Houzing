@@ -94,8 +94,8 @@ const AddNew = () => {
           internet: true,
           tv: true,
         },
-        country: "대한민국2",
-        description: "menig uyim ",
+        country: "",
+        description: " ",
         favorite: true,
         homeAmenitiesDto: {
           additional: "string",
@@ -110,21 +110,21 @@ const AddNew = () => {
           superMarket: true,
         },
         houseDetails: {
-          area: 3,
-          bath: 2,
-          beds: 1,
-          garage: 2,
-          room: 20,
-          yearBuilt: 100,
+          area: "",
+          bath: "",
+          beds: "",
+          garage: "",
+          room: "",
+          yearBuilt: "",
         },
         locations: {
           latitude: center?.lat,
           longitude: center?.lng,
         },
-        name: "string",
-        price: 12000,
-        region: "서울 원서동",
-        salePrice: 129900,
+        name: "",
+        price: "",
+        region: "",
+        salePrice: "",
         status: true,
         zipCode: "string",
       },
@@ -170,6 +170,22 @@ const AddNew = () => {
     setData({
       ...data,
       [name]: value,
+    });
+  };
+
+  const createPostCheck = ({ target }) => {
+    setData({
+      ...data,
+      homeAmenitiesDto: {
+        ...data.homeAmenitiesDto,
+        [target.name]: target.checked,
+      },
+    });
+  };
+  const createPost = ({ target }) => {
+    setData({
+      ...data,
+      houseDetails: { ...data.houseDetails, [target.name]: target.value },
     });
   };
   return (
