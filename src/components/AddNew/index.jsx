@@ -191,7 +191,7 @@ const AddNew = () => {
         </Wrapper>
       </Section>
       {/* 2 */}
-      {/* <Section>
+      <Section>
         <div className="subtitle ">Additional</div>
 
         <Wrapper>
@@ -210,7 +210,7 @@ const AddNew = () => {
           />
           <Input placeholder={"Room"} />
         </Wrapper>
-      </Section> */}
+      </Section>
 
       {/* 3 */}
       {/* <Section>
