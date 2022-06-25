@@ -1,112 +1,92 @@
 import React from "react";
-import { Input, Button } from "../../components/Generic";
-import { Container, Wrapper } from "./style";
-// import { useMutation } from "react-query";
-// import { useNavigate } from "react-router-dom";
-
-// const { REACT_APP_BASE_URL: url } = process.env;
-
-// const subscribe = async ({ email }) => {
-//   const res = await fetch(`${url}/public/auth/register=${email}`);
-// };
-
-export const SigninUp = () => {
-  // const [mutate, { isSuccess, isLoading, isError }] = useMutation((data) =>
-  //   subscribe(data)
-  // );
-
-  // const onSubmit = (data) => mutate(data);
-
-  // //
-  // const [email, setEmail] = useState("");
-  // const [pw, setPw] = useState("");
-  // const [isValidEmail, setIsValidEmail] = useState(false);
-  // const [isValidPassword, setIsValidPassword] = useState(false);
-
-  // //
-  // const navigate = useNavigate();
-
-  // // useQuery
-
-  // const { mutate } = useMutation(() => {
-  //   return fetch(`${url}/public/auth/login`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ email: email, password: pw }),
-  //   }).then((res) => res.json());
-  // });
-
-  // const onSubmit = () => {
-  //   if (!email) setIsValidEmail(true);
-  //   if (!pw) setIsValidPassword(true);
-  //   if (pw && email)
-  //     mutate(
-  //       {},
-  //       {
-  //         onSuccess: (res) => {
-  //           if (res?.authenticationToken) {
-  //             localStorage.setItem("token", res?.authenticationToken);
-  //             navigate("/myproporties");
-  //           }
-  //         },
-  //         onError: (err) => {
-  //           console.log("err");
-  //           console.log(err);
-  //         },
-  //       }
-  //     );
-  // };
+import { Button, Input } from "../../components/Generic";
+import { Container, Wrapper, Login, Icon } from "./style";
+import { useNavigate } from "react-router";
+import { useMutation } from "react-query";
+import { useState } from "react";
+import { message } from "antd";
+import { AiFillEye } from "react-icons/ai";
+const { REACT_APP_BASE_URL: url } = process.env;
+const SigninUp = () => {
+  const [visible, setVisible] = useState(false);
+  const [data, setData] = useState({
+    email: "",
+    firstname: "",
+    lastname: "",
+    password: "",
+    roleIdSet: [1],
+  });
+  const onChange = ({ target }) => {
+    const { value, name } = target;
+    setData({ ...data, [name]: value });
+  };
+  const handleChange = () => {
+    setVisible(!visible);
+  };
+  const onSubmit = () => {
+    mutate("", {
+      onSuccess: (res) => {
+        if (res.status === 201) {
+          message.info("Iltimos malumo kiriting!");
+          navigate("/signin");
+        } else if (res.status === 422) {
+          message.warning("Bunday Profil Mavjud");
+        } else {
+          message.error("Malumotni Yozing");
+        }
+      },
+    });
+  };
+  const { mutate } = useMutation(() => {
+    return fetch(`${url}/public/auth/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  });
+  const navigate = useNavigate();
 
   return (
     <Container>
       <Wrapper>
-        {" "}
         <div className="subtitle">Registration</div>
-        {/* <Input
-          mt={60}
-          onChange={({ target }) => {
-            setIsValidEmail(false);
-            setEmail(target.value);
-          }}
-          value={email}
-          placeholder={"Email"}
-        />
-        {isValidEmail && <div style={{ color: "red" }}>Login kriting!</div>}
+
         <Input
-          onChange={({ target }) => {
-            setIsValidPassword(false);
-            setPw(target.value);
-          }}
-          value={pw}
-          placeholder={"Password"}
-          mt={40}
+          onChange={onChange}
+          name={"firstname"}
+          placeholder={"First name"}
+          mt={10}
         />
-        {isValidPassword && (
-          <div style={{ color: "red" }}>Password kiriting!</div>
-        )}
-        <Ceckbox>
-          <Checkbox>Remember me</Checkbox>
-          <a href="/signup" onClick={() => navigate("signup")}>
-            Forget
-          </a>
-        </Ceckbox>
-        <Button mt={32} onClick={onSubmit} type="primary">
-          Logiin
-        </Button> */}
-        <Input placeholder={"Login"} />
-        <Input placeholder={"First name"} />
-        <Input placeholder={"Last name"} />
-        <Input placeholder={"Email"} />
-        <Input placeholder={"Password"} />
-        <Input placeholder={"Re-enter password"} />
-        <Button mt={32} type="primary">
+        <Input
+          onChange={onChange}
+          name={"lastname"}
+          placeholder={"Last name"}
+        />
+        <Input
+          onChange={onChange}
+          name={"email"}
+          placeholder={"Email"}
+          type={"email"}
+        />
+        <Input
+          type={visible ? "password" : "string"}
+          onChange={onChange}
+          name={"password"}
+          placeholder={"Password"}
+        />
+        <Icon onClick={handleChange}>
+          <AiFillEye />{" "}
+        </Icon>
+        <Button onClick={onSubmit} type={"secondary"}>
           Register
         </Button>
+        <Login className={"description"} onClick={() => navigate("/signin")}>
+          Sign in
+        </Login>
       </Wrapper>
     </Container>
   );
 };
-
 export default SigninUp;

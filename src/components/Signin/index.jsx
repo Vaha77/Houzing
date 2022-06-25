@@ -79,7 +79,7 @@ export const Signin = () => {
         <Ceckbox>
           <Checkbox>Remember me</Checkbox>
           <a href="/signup" onClick={() => navigate("signup")}>
-            Forget
+            Register
           </a>
         </Ceckbox>
         <Button mt={32} onClick={onSubmit} type="primary">
