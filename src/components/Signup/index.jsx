@@ -27,12 +27,12 @@ const SigninUp = () => {
     mutate("", {
       onSuccess: (res) => {
         if (res.status === 201) {
-          message.info("Iltimos malumo kiriting!");
+          message.info("Habar Emailga yuborildi");
           navigate("/signin");
         } else if (res.status === 422) {
           message.warning("Bunday Profil Mavjud");
         } else {
-          message.error("Malumotni Yozing");
+          message.error("Iltimos Malumotni To'g'ri Kiritng ");
         }
       },
     });
