@@ -1,10 +1,22 @@
 import styled from "styled-components";
-
+import { Input } from "formik-antd";
+const Inputs = styled(Input)`
+  border-radius: 2px;
+  border: 1px solid #e6e9ec;
+  outline: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #0d263b;
+  display: flex;
+  height: 44px;
+`;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 32px 130px;
-  /* width: 100%; */
+  width: 100%;
 `;
 
 const Wrapper = styled.div`
@@ -25,4 +37,4 @@ const Section = styled.div`
   margin-top: 32px;
 `;
 
-export { Container, Wrapper, Section };
+export { Container, Wrapper, Section, Inputs };
