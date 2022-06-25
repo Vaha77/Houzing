@@ -1,4 +1,4 @@
-import AddNew from "../../components/AddNew";
+import AddNew from "../../components/AddNew/indexs";
 
 const AddNewPage = () => <AddNew />;
 
