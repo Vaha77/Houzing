@@ -40,7 +40,6 @@ const MyProporties = () => {
   };
 
   const cancel = (e) => {
-    console.log(e);
     message.error("Click on No");
   };
   const onSelect = (id) => {
@@ -83,7 +82,6 @@ const MyProporties = () => {
             </thead>
             <tbody>
               {data?.data?.map((value) => {
-                console.log(value, " valu");
                 return (
                   <Tr key={value.id}>
                     <Td>

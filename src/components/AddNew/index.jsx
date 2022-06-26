@@ -23,7 +23,6 @@ const AddNew = () => {
     },
     {
       onSuccess: (res) => {
-        console.log(res, "res addnew");
         setData(res?.data || {});
       },
     }
@@ -131,7 +130,6 @@ const AddNew = () => {
     } else {
       mutate(info, {
         onSuccess: (res) => {
-          console.log(res);
           if (res?.success) {
             navigate("//myproporties");
           }

@@ -11,7 +11,6 @@ const { REACT_APP_BASE_URL: url } = process.env;
 const SelectotHouse = () => {
   const [state, setState] = useState({});
   const { id } = useParams();
-  console.log(id);
 
   useQuery(
     "get data",
@@ -25,7 +24,6 @@ const SelectotHouse = () => {
     },
     {
       onSuccess: (res) => {
-        console.log(res, "vaxa");
         setState(res?.data);
       },
       keepPreviousData: true,

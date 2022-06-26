@@ -28,8 +28,6 @@ export const PropertyDetails = () => {
     }
   );
 
-  console.log(state, "ssssssssssssssssssssss");
-
   return (
     <Container>
       <Title>Property Details</Title>

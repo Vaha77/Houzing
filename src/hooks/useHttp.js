@@ -24,7 +24,6 @@ export const useHttp = () => {
       headers,
     }).then((res) => res.json());
     if (res.success) {
-      console.log(res);
       return res;
     } else return new Error(res?.message || "something was wrong");
   };

@@ -44,7 +44,6 @@ export const Navbar = () => {
     },
     {
       onSuccess: (res) => {
-        console.log(res);
         setData(res?.data?.data || []);
       },
     }

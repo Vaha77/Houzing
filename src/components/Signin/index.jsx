@@ -41,10 +41,7 @@ export const Signin = () => {
               navigate("/myproporties");
             }
           },
-          onError: (err) => {
-            console.log("err");
-            console.log(err);
-          },
+          onError: (err) => {},
         }
       );
   };

@@ -38,7 +38,6 @@ const AdvancedSearch = ({ state, setState, query, list }) => {
     });
     setDef("Select Category");
     navigate("/properties");
-    console.log(query.get("category_id"));
   };
 
   const { Option } = Select;

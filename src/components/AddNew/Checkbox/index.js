@@ -1,9 +1,7 @@
 import React from "react";
 import { Checkbox, Col, Row } from "antd";
 
-const onChange = (checkedValues) => {
-  console.log("checked = ", checkedValues);
-};
+const onChange = (checkedValues) => {};
 
 const App = () => (
   <Checkbox.Group
