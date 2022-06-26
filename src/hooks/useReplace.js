@@ -1,9 +1,7 @@
-export const useReplace = (query, value) => {
+export const UseReplace = (name, value) => {
   let url = new URL(window?.location?.href);
-  url.searchParams.set(query, value);
-  if (!value && value !== 0) {
-    url.searchParams.delete(query);
-  }
+  url.searchParams.set(name, value);
+  if (!value) url.searchParams.delete(name);
   return url.search;
 };
-export default useReplace;
+export default UseReplace;

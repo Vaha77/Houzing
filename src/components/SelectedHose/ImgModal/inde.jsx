@@ -47,7 +47,9 @@ export const ImgModal = ({ info }) => {
                 backgroundSize: "cover",
               }}
             >
-              <Right.Number onClick={showModal}>+{info?.length}</Right.Number>
+              <Right.Number onClick={showModal}>
+                +{info?.attachments?.imgPath?.length}
+              </Right.Number>
             </Right.Count>
           </Right>
         </ImageContainer>

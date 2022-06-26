@@ -3,14 +3,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 `;
 
 const Wrapper = styled.div`
-  /* display: flex;
-  max-width: 1440px;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 0 130px; */
+  width: 1440px;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -20,7 +17,6 @@ const Wrapper = styled.div`
 `;
 const Total = styled.div`
   margin: 70px 0 16px 0;
-  max-width: 1440px;
   text-align: start;
   width: 100%;
   padding: 0 130px;

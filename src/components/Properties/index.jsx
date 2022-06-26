@@ -12,6 +12,7 @@ export const Properties = () => {
   const [data, setData] = useState([]);
   const { search } = useLocation();
   const { request } = useHttp();
+
   useQuery(
     ["get data", search],
     () => request({ url: `/v1/houses/list${search}` }),
