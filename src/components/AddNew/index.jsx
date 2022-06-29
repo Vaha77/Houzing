@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import { Container, Inputs, Section, Wrapper } from "./style";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
-import Uploads from "./Upload";
-import Check from "./Checkbox";
+// import Uploads from "./Upload";
+// import Check from "./Checkbox";
 import { useHttp } from "../../hooks/useHttp";
 import { useMutation, useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
@@ -24,6 +24,7 @@ const AddNew = () => {
     {
       onSuccess: (res) => {
         setData(res?.data || {});
+        console.log(res, "dataMI");
       },
     }
   );
@@ -84,6 +85,7 @@ const AddNew = () => {
         ],
 
         homeAmenitiesDto: {},
+        // componentsDto
         houseComponentsDto: {},
         componentsDto: {
           additional: "string",
@@ -117,21 +119,25 @@ const AddNew = () => {
   });
 
   const onSave = (info) => {
+    console.log(info, "info");
     if (id) {
       update(
         { id, info },
         {
           onSuccess: (res) => {
-            message.info("update malumot");
-            navigate("//myproporties");
+            if (res?.success) {
+              message.info("update malumot");
+              navigate("/myproporties");
+            }
           },
         }
       );
     } else {
       mutate(info, {
         onSuccess: (res) => {
+          console.log(res);
           if (res?.success) {
-            navigate("//myproporties");
+            navigate("/myproporties");
           }
         },
       });
@@ -142,8 +148,8 @@ const AddNew = () => {
     <Formik
       initialValues={data}
       enableReinitialize
-      //  onSubmit={onSave}
-      render={({ initialValues }) => {
+      onSubmit={onSave}
+      render={(PROPS) => {
         return (
           <Container>
             <Form>
@@ -151,14 +157,15 @@ const AddNew = () => {
               <Section>
                 <div className="subtitle ">Contact information</div>
                 <Wrapper>
-                  <Inputs name={"name"} placeholder={"Property title*"} />
-                  <Inputs name={"country"} placeholder={"Country"} />
+                  <Inputs name="address" placeholder={"Property title*"} />
+                  <Inputs name="category" placeholder={"Country"} />
                 </Wrapper>
                 <Wrapper>
                   <Inputs
-                    name={"description"}
+                    name="description"
                     placeholder={"Property Description*"}
                   />
+                  <Inputs name="region" placeholder="region" />
                 </Wrapper>
               </Section>
               {/* 2 */}
@@ -215,8 +222,8 @@ const AddNew = () => {
                 <div className="subtitle ">Location</div>
 
                 <Wrapper>
-                  <Inputs name="locations.latitude" placeholder={"Region"} />
-                  <Inputs name="locations?.longitude" placeholder={"Address"} />
+                  <Inputs name="locations.longitude" placeholder={"Region"} />
+                  <Inputs name="locations.latitude" placeholder={"Address"} />
                 </Wrapper>
                 <Wrapper>
                   <Wrapper>
@@ -230,6 +237,7 @@ const AddNew = () => {
                         onClick={onMapClick}
                       >
                         <Marker position={center} />
+                        <Marker position={center} />
                         <></>
                       </GoogleMap>
                     )}
@@ -239,7 +247,7 @@ const AddNew = () => {
 
               {/* 5 */}
               <div className="endToRight">
-                <SubmitButton onSave>Save</SubmitButton>
+                <SubmitButton>Save</SubmitButton>
               </div>
             </Form>
           </Container>

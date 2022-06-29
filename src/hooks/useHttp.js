@@ -25,7 +25,7 @@ export const useHttp = () => {
     }).then((res) => res.json());
     if (res.success) {
       return res;
-    } else return new Error(res?.message || "something was wrong");
+    } else return new Error(res?.message || "MALUMOT YOQKU");
   };
 
   return { request };
